@@ -7,7 +7,6 @@ export const post = sqliteTable("post", {
     author: text("author").notNull(),
     slug: text("slug").notNull(),
     description: text("description").notNull(),
-    markdown: text("markdown").notNull(),
 });
 
 export type Post = InferInsertModel<typeof post>;
