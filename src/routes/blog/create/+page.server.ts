@@ -32,7 +32,7 @@ export const actions = {
         const author = "placeHolder";
         const slug = `${author}-${name}`;
 
-        db.insert(post).values({
+        await db.insert(post).values({
             name: String(description),
             description: String(description),
             author,
