@@ -5,8 +5,9 @@
                 <li>
                     <a href="/">Bloggy</a>
                 </li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/blog">blog</a></li>
+                <li><a href="/create">Create</a></li>
+                <!-- <li><a href="/">Home</a></li>
+                <li><a href="/blog">blog</a></li> -->
             </ul>
 
             <ul>
