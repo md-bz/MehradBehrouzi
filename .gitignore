@@ -24,5 +24,8 @@ vite.config.ts.timestamp-*
 # Bun 
 *bun
 
+#blog
+static/blog/*
+
 # DB
 *.db
