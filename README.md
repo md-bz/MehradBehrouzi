@@ -27,7 +27,7 @@ A **User Management API** is required to handle user authentication and authoriz
 1. Clone the repository:
 
     ```bash
-    git clone <repository-url>
+    git clone github.com/md-bz/blog-svelte
     cd blog-svelte
     ```
 
@@ -113,7 +113,3 @@ The app will be available at `http://localhost:3000`.
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-This README should now reflect the new functionality and dependencies of your Svelte blog project. Let me know if you'd like any further adjustments!
