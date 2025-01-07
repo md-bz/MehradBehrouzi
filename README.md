@@ -27,7 +27,7 @@ A **User Management API** is required to handle user authentication and authoriz
 1. Clone the repository:
 
     ```bash
-    git clone github.com/md-bz/blog-svelte
+    git clone https://github.com/md-bz/blog-svelte
     cd blog-svelte
     ```
 
