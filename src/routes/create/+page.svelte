@@ -14,7 +14,7 @@
         </label>
         <label>
             Markdown File
-            <input type="file" name="file" />
+            <input type="file" name="file" accept="text/markdown" />
         </label>
     </fieldset>
 

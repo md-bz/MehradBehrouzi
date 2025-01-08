@@ -1,30 +1,29 @@
+import { error, redirect } from "@sveltejs/kit";
 import { env } from "$env/dynamic/private";
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
 import { fail, type Cookies } from "@sveltejs/kit";
 import { writeFile } from "fs/promises";
 import markdownIt from "markdown-it";
-
-async function getMe(jwt: string) {
-    const res = await fetch(`${env.API_URL}/users/me`, {
-        headers: { Authorization: `Bearer ${jwt}` },
-    });
-    return await res.json();
-}
+import type { PageServerLoad } from "./$types";
+import type { User } from "@auth/sveltekit";
 
 const maxSize = 5; //mb
 
+export const load: PageServerLoad = async (event) => {
+    const session = (await event.parent()).session;
+    if (!session?.user) throw error(401, "Unauthorized");
+
+    return {};
+};
 export const actions = {
     post: async ({
-        cookies,
         request,
+        locals,
     }: {
-        cookies: Cookies;
         request: Request;
+        locals: { getSession: () => Promise<{ user: User } | undefined> };
     }) => {
-        const jwt = cookies.get("jwt");
-        if (!jwt) return fail(401, { unauthorized: true });
-
         const data = await request.formData();
 
         const name = data.get("name");
@@ -34,9 +33,9 @@ export const actions = {
         if (!file || !name || !description) return fail(422, { missing: true });
         file = file as File;
 
-        const res = await getMe(jwt);
-        if (res.status == "fail") return fail(401, { unauthorized: true });
-        const author = res.data.document.name;
+        const author = (await locals.getSession())?.user.email;
+
+        if (!author) return fail(401, { unauthorized: true });
 
         if (file.type !== "text/markdown")
             return fail(422, { wrongType: true });
@@ -44,7 +43,7 @@ export const actions = {
         if (file.size > maxSize * 1000 * 1000)
             return fail(422, { tooLarge: true });
 
-        const slug = `${author}-${name}`;
+        const slug = name.toString().replace(/\s/g, "-").toLowerCase();
 
         await db.insert(post).values({
             name: String(description),
