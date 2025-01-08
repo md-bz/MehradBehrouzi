@@ -1,3 +1,7 @@
+<script>
+    export let data;
+</script>
+
 <body>
     <header>
         <nav>
@@ -5,19 +9,16 @@
                 <li>
                     <a href="/">Bloggy</a>
                 </li>
-                <li><a href="/create">Create</a></li>
-                <!-- <li><a href="/">Home</a></li>
-                <li><a href="/blog">blog</a></li> -->
             </ul>
 
             <ul>
                 <li>
-                    <a href="/login">Login</a>
+                    <a href="/about">About</a>
                 </li>
 
-                <li>
-                    <a href="/signup">Signup</a>
-                </li>
+                {#if data.session?.user}
+                    <li><a href="/create">Create</a></li>
+                {/if}
             </ul>
         </nav>
     </header>
