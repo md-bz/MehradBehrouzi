@@ -33,9 +33,14 @@ export const actions = {
         if (!file || !name || !description) return fail(422, { missing: true });
         file = file as File;
 
-        const author = (await locals.getSession())?.user.email;
+        const author = (await locals.getSession())?.user;
 
         if (!author) return fail(401, { unauthorized: true });
+
+        const { name: authorName, email: authorEmail } = author;
+
+        if (!authorName || !authorEmail)
+            return fail(422, { missingAuthor: true });
 
         if (file.type !== "text/markdown")
             return fail(422, { wrongType: true });
@@ -46,9 +51,10 @@ export const actions = {
         const slug = name.toString().replace(/\s/g, "-").toLowerCase();
 
         await db.insert(post).values({
-            name: String(description),
+            name: String(name),
             description: String(description),
-            author,
+            author_email: authorEmail,
+            author_name: authorName,
             slug,
         });
 

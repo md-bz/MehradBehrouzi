@@ -5,7 +5,7 @@ export async function load() {
     const posts = db
         .select({
             name: post.name,
-            author: post.author,
+            author: post.author_name,
             slug: post.slug,
             description: post.description,
         })
