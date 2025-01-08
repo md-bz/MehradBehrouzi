@@ -29,6 +29,8 @@
         "@auth/sveltekit": "^1.7.4",
         "better-sqlite3": "^11.7.2",
         "drizzle-orm": "^0.31.2",
-        "markdown-it": "^14.1.0"
+        "markdown-it": "^14.1.0",
+        "telegraf": "^4.16.3",
+        "telegramify-markdown": "^1.2.2"
     }
 }

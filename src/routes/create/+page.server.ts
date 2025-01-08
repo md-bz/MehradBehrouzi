@@ -5,8 +5,10 @@ import { post } from "$lib/server/db/schema";
 import { fail, type Cookies } from "@sveltejs/kit";
 import { writeFile } from "fs/promises";
 import markdownIt from "markdown-it";
+import telegramifyMarkdown from "telegramify-markdown";
 import type { PageServerLoad } from "./$types";
 import type { User } from "@auth/sveltekit";
+import { sendToTelegram } from "$lib/server/telegram";
 
 const maxSize = 5; //mb
 
@@ -59,9 +61,12 @@ export const actions = {
         });
 
         const md = markdownIt();
-        const result = md.render(await file.text());
+        const fileText = await file.text();
+        const result = md.render(fileText);
 
         await writeFile(`./static/blog/${slug}.html`, result);
+        const telegramMarkdown = telegramifyMarkdown(fileText, "keep");
+        await sendToTelegram(telegramMarkdown);
 
         return { success: true };
     },
