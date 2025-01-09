@@ -1,5 +1,6 @@
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
+import type { Cookies } from "@sveltejs/kit";
 
 export async function load() {
     const posts = db
@@ -14,3 +15,11 @@ export async function load() {
 
     return { posts };
 }
+
+export const actions = {
+    changeLang: async ({ cookies }: { cookies: Cookies }) => {
+        const lang = cookies.get("lang");
+        const newLang = lang === "en" ? "ir" : "en";
+        cookies.set("lang", newLang, { path: "/", expires: undefined });
+    },
+};

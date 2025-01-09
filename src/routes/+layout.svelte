@@ -1,18 +1,22 @@
 <script>
-    export let data;
-
+    import ChangeLanBtn from "$lib/components/ChangeLanBtn.svelte";
     import { loadTranslations } from "$lib/translations";
     import { t } from "$lib/translations";
-    const initLocale = "ir";
-    loadTranslations(initLocale, "/");
+
+    export let data;
+
+    loadTranslations(data.lang, "/");
 </script>
 
-<body>
+<body style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
     <header>
         <nav>
             <ul>
                 <li>
                     <a href="/">Bloggy</a>
+                </li>
+                <li>
+                    <ChangeLanBtn lang={$t("nav.lang")} />
                 </li>
             </ul>
 
