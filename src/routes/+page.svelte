@@ -8,7 +8,7 @@
         <article>
             <!-- <header>{name} {$t("home.by")} {author}</header> -->
             {description}
-            <footer><a href="./{slug}">{$t("home.read")}</a></footer>
+            <footer><a href="./blog/{slug}">{$t("home.read")}</a></footer>
         </article>
     {/each}
 </ul>
