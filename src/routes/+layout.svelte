@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/">Bloggy</a>
+                    <a href="/" style="color: #3b66f2;">MehradBz</a>
                 </li>
                 <li>
                     <ChangeLanBtn lang={$t("nav.lang")} />
