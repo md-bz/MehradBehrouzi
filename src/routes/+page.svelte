@@ -6,7 +6,7 @@
 <ul>
     {#each data.posts as { name, slug, author, description }}
         <article>
-            <header>{name} {$t("home.by")} {author}</header>
+            <!-- <header>{name} {$t("home.by")} {author}</header> -->
             {description}
             <footer><a href="./{slug}">{$t("home.read")}</a></footer>
         </article>
