@@ -1,5 +1,10 @@
 <script>
     export let data;
+
+    import { loadTranslations } from "$lib/translations";
+    import { t } from "$lib/translations";
+    const initLocale = "ir";
+    loadTranslations(initLocale, "/");
 </script>
 
 <body>
@@ -13,11 +18,11 @@
 
             <ul>
                 <li>
-                    <a href="/about">About</a>
+                    <a href="/about">{$t("nav.about")}</a>
                 </li>
 
                 {#if data.session?.user}
-                    <li><a href="/create">Create</a></li>
+                    <li><a href="/create">{$t("nav.create")}</a></li>
                 {/if}
             </ul>
         </nav>
