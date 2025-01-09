@@ -15,14 +15,14 @@
                 <li>
                     <a href="/" style="color: #3b66f2;">MehradBz</a>
                 </li>
-                <li>
-                    <ChangeLanBtn lang={$t("nav.lang")} />
-                </li>
             </ul>
 
             <ul>
-                <li>
+                <!-- <li>
                     <a href="/about">{$t("nav.about")}</a>
+                </li> -->
+                <li>
+                    <ChangeLanBtn lang={$t("nav.lang")} />
                 </li>
 
                 {#if data.session?.user}

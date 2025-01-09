@@ -3,10 +3,10 @@
     export let data;
 </script>
 
-<ul>
+<ul style="padding: 0; margin: 0;">
     {#each data.posts as { name, slug, author, description }}
         <article>
-            <!-- <header>{name} {$t("home.by")} {author}</header> -->
+            <header>{name}</header>
             {description}
             <footer><a href="./blog/{slug}">{$t("home.read")}</a></footer>
         </article>
