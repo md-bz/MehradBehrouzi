@@ -29,3 +29,8 @@ static/blog/*
 
 # DB
 *.db
+
+
+# Wrangler
+wrangler*
+.wrangler*
