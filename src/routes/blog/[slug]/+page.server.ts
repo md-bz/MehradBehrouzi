@@ -4,6 +4,8 @@ import { error } from "@sveltejs/kit";
 import { eq } from "drizzle-orm";
 import { readFile } from "fs/promises";
 
+export const csr = false;
+
 export async function load({ params }: { params: { slug: string } }) {
     const info = db.select().from(post).where(eq(post.slug, params.slug)).get();
     if (!info) return error(404, "Not found");
