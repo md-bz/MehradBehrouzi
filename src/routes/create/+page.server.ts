@@ -9,6 +9,7 @@ import type { PageServerLoad } from "./$types";
 import type { User } from "@auth/sveltekit";
 import { sendToTelegram } from "$lib/server/telegram";
 import { put } from "@vercel/blob";
+import { NeonDbError } from "@neondatabase/serverless";
 
 const maxSize = 5; //mb
 
@@ -67,15 +68,23 @@ export const actions = {
             token: env.BLOB_READ_WRITE_TOKEN,
         });
 
-        await db.insert(post).values({
-            name: String(name),
-            description: String(description),
-            author_email: authorEmail,
-            author_name: authorName,
-            slug,
-            url,
-            language,
-        });
+        try {
+            await db.insert(post).values({
+                name: String(name),
+                description: String(description),
+                author_email: authorEmail,
+                author_name: authorName,
+                slug,
+                url,
+                language,
+            });
+        } catch (error) {
+            if (error instanceof NeonDbError && error.code === "23505") {
+                return fail(422, { error: "slug already exists" });
+            }
+
+            return fail(500, { error: "internal server error" });
+        }
 
         const telegramMarkdown = telegramifyMarkdown(fileText, "keep");
         await sendToTelegram(telegramMarkdown);
