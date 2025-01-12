@@ -3,15 +3,14 @@ import { post } from "$lib/server/db/schema";
 import type { Cookies } from "@sveltejs/kit";
 
 export async function load() {
-    const posts = db
+    const posts = await db
         .select({
             name: post.name,
             author: post.author_name,
             slug: post.slug,
             description: post.description,
         })
-        .from(post)
-        .all();
+        .from(post);
 
     return { posts };
 }
