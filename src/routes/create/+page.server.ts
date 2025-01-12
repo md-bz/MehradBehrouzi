@@ -3,12 +3,12 @@ import { env } from "$env/dynamic/private";
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
 import { fail, type Cookies } from "@sveltejs/kit";
-import { writeFile } from "fs/promises";
 import markdownIt from "markdown-it";
 import telegramifyMarkdown from "telegramify-markdown";
 import type { PageServerLoad } from "./$types";
 import type { User } from "@auth/sveltekit";
 import { sendToTelegram } from "$lib/server/telegram";
+import { put } from "@vercel/blob";
 
 const maxSize = 5; //mb
 
@@ -31,8 +31,11 @@ export const actions = {
         const name = data.get("name");
         const description = data.get("description");
         let file = data.get("file");
+        const language = data.get("language");
 
-        if (!file || !name || !description) return fail(422, { missing: true });
+        if (!file || !name || !description || !language)
+            return fail(422, { missing: true });
+
         file = file as File;
 
         const author = (await locals.getSession())?.user;
@@ -44,6 +47,9 @@ export const actions = {
         if (!authorName || !authorEmail)
             return fail(422, { missingAuthor: true });
 
+        if (language !== "fa" && language !== "en")
+            return fail(422, { wrongLanguage: true });
+
         if (file.type !== "text/markdown")
             return fail(422, { wrongType: true });
 
@@ -52,19 +58,25 @@ export const actions = {
 
         const slug = name.toString().replace(/\s/g, "-").toLowerCase();
 
+        const md = markdownIt();
+        const fileText = await file.text();
+        const result = md.render(fileText);
+
+        const { url } = await put(`blog/${slug}.html`, result, {
+            access: "public",
+            token: env.BLOB_READ_WRITE_TOKEN,
+        });
+
         await db.insert(post).values({
             name: String(name),
             description: String(description),
             author_email: authorEmail,
             author_name: authorName,
             slug,
+            url,
+            language,
         });
 
-        const md = markdownIt();
-        const fileText = await file.text();
-        const result = md.render(fileText);
-
-        await writeFile(`./static/blog/${slug}.html`, result);
         const telegramMarkdown = telegramifyMarkdown(fileText, "keep");
         await sendToTelegram(telegramMarkdown);
 

@@ -13,6 +13,13 @@
             <input required type="text" name="description" />
         </label>
         <label>
+            Language
+            <select name="language">
+                <option value="fa">فارسی</option>
+                <option value="en">English</option>
+            </select>
+        </label>
+        <label>
             Markdown File
             <input type="file" name="file" accept="text/markdown" />
         </label>
