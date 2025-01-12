@@ -1,6 +1,6 @@
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
-import type { Cookies } from "@sveltejs/kit";
+import { redirect, type Cookies } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import { eq } from "drizzle-orm";
 
@@ -20,7 +20,7 @@ export const load: PageServerLoad = async ({ cookies }) => {
             language: post.language,
         })
         .from(post)
-        .where(eq(post.language, lang));
+        .where(eq(post.language, lang as "fa" | "en"));
 
     return { posts };
 };
@@ -30,5 +30,6 @@ export const actions = {
         const lang = cookies.get("lang");
         const newLang = lang === "en" ? "fa" : "en";
         cookies.set("lang", newLang, { path: "/", expires: undefined });
+        redirect(302, "/");
     },
 };
