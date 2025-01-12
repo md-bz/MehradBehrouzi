@@ -19,7 +19,7 @@ export async function load() {
 export const actions = {
     changeLang: async ({ cookies }: { cookies: Cookies }) => {
         const lang = cookies.get("lang");
-        const newLang = lang === "en" ? "ir" : "en";
+        const newLang = lang === "en" ? "fa" : "en";
         cookies.set("lang", newLang, { path: "/", expires: undefined });
     },
 };
