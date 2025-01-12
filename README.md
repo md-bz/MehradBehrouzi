@@ -1,115 +1,62 @@
-# Blog-Svelte
+# Mehradbz Personal Website
 
-## Overview
+Welcome to the repository for my personal website! This is a minimalist website currently featuring a blog section where I share thoughts, ideas, and insights.
 
-This project is a blog platform built using [SvelteKit](https://kit.svelte.dev/) with user authentication, blog post creation using markdown, and SQLite as the database. The platform allows users to sign up, log in, and create markdown-based blog posts, which are stored as HTML files.
+## Project Details
 
-A **User Management API** is required to handle user authentication and authorization.
+-   **Name:** mehradbz
+-   **Framework:** [SvelteKit](https://kit.svelte.dev/)
+-   **Database:** [Drizzle ORM](https://orm.drizzle.team/) with support for SQLite and NeonDB
+-   **Markdown Rendering:** Powered by [markdown-it](https://github.com/markdown-it/markdown-it) and [telegramify-markdown](https://github.com/mehradbz/telegramify-markdown) for telegram markdown rendering
 
 ## Features
 
--   **User Authentication**: The app interacts with a User Management API for user login, registration, and authentication.
--   **Markdown Support**: Blog posts are uploaded in markdown format and converted to HTML using `markdown-it`.
--   **File Upload**: Supports file uploads of markdown files for blog posts, with size restrictions (max 5MB).
--   **SQLite Database**: Managed with `better-sqlite3` and Drizzle ORM to store blog post metadata like author and description.
--   **Dynamic Routing**: Blog posts are accessible via dynamic routes like `[slug]`.
--   **Pico CSS**: Simple and minimal CSS framework is used for styling.
+-   **Blog Section:** A space to publish and showcase articles.
+-   **Localization Support:** Managed via [sveltekit-i18n](https://github.com/sveltekit-i18n/sveltekit-i18n) fo multilingual capabilities.
+-   **Markdown-Driven Content:** Blog content is written in Markdown for simplicity.
+-   **Database Management:** Using `drizzle-kit` for schema migrations and database operations.
 
-## Prerequisites
+## Tech Stack
 
--   **User Management API**: The project requires an API that handles user authentication and provides JWT tokens. This API should support the following endpoints:
-    -   `/users/login`: for logging in and obtaining a JWT.
-    -   `/users/signup: for sign up.
-    -   `/users/me`: for retrieving user data based on the JWT.
+### Frontend
 
-## Installation
+-   **Framework:** SvelteKit
+-   **Styling:** pico css for now
+-   **Localization:** sveltekit-i18n
 
-1. Clone the repository:
+### Backend
 
+-   **Database ORM:** Drizzle ORM
+-   **Database:** SQLite (might get removed), NeonDB
+-   **Authentication:** @auth/sveltekit with GitHub OAuth
+-   **File Management:** @vercel/blob
+
+## Getting Started
+
+To get started with the project locally:
+
+1. Clone this repository:
     ```bash
-    git clone https://github.com/md-bz/blog-svelte
-    cd blog-svelte
+    git clone https://github.com/md-bz/MehradBz
+    cd MehradBz
     ```
-
-2. Install dependencies:
-
+1. install dependencies
     ```bash
     npm install
     ```
+1. Copy `.env.example` to `.env` and fill in the required values(make sure to use sqlite with master branch and neondb with vercel branch)
 
-3. Set up the database:
+1. Initialize the database:
+
     ```bash
     npm run db:push
     ```
 
-## Environment Variables
-
-You'll need to set up environment variables for interacting with your User Management API. Add the following to your `.env` file:
-
-```bash
-VITE_API_URL=<your_user_management_api_url>
-```
-
-This variable is used to interact with the authentication API for login and user data retrieval.
-
-## Development
-
-To start the development server, run:
-
-```bash
-npm run dev
-```
-
-The app will be available at `http://localhost:3000`.
-
-## Scripts
-
--   `npm run dev`: Starts the development server.
--   `npm run build`: Builds the project for production.
--   `npm run preview`: Previews the production build.
--   `npm run check`: Runs type checking and synchronizes SvelteKit.
--   `npm run db:push`: Pushes database schema changes.
--   `npm run db:migrate`: Applies migrations to the database.
--   `npm run db:studio`: Opens the database studio for managing your schema interactively.
-
-## Features in Detail
-
-### Authentication
-
--   **Login**: The login form collects the user's email and password, sends them to the `/users/login` endpoint of the API, and receives a JWT token. The token is stored in cookies for session management.
--   **Protected Routes**: Routes like `/create` are protected, requiring the user to be authenticated. The JWT token is validated to ensure the user has the right access.
-
-### Markdown Blog Posts
-
--   **File Upload**: Users can upload blog posts in markdown format (with a `.md` extension). The file is processed on the server, and the markdown content is converted into HTML using `markdown-it`.
--   **Size Limit**: Uploaded markdown files must not exceed 5MB.
--   **Slug Generation**: A unique slug is generated for each post based on the author and post name. The post is then stored as an HTML file in the `static/blog` directory.
--   **Database**: Metadata for each post, including the post name, description, author, and slug, is stored in the SQLite database using Drizzle ORM.
-
-### Example Routes
-
--   `/login`: User login page.
--   `/signup`: User registration page.
--   `/create`: Page for creating a new blog post (requires authentication).
--   `/[slug]`: Dynamic route to display individual blog posts.
-
-## Dependencies
-
--   **SvelteKit**: Framework for building modern web apps.
--   **Vite**: Build tool for development and production.
--   **Better-SQLite3**: A fast and simple SQLite library for Node.js.
--   **Drizzle ORM**: Type-safe SQL ORM for querying your SQLite database.
--   **Markdown-it**: Fast markdown parser for rendering blog content.
--   **Pico CSS**: Lightweight CSS framework for minimal styling.
-
-## Folder Structure
-
--   `/src/routes`: Contains the app routes like login, signup, and dynamic blog post routes.
-    -   `+layout.svelte`: Layout component for consistent page structure.
-    -   `+page.svelte`: Main page for listing blog posts or content.
-    -   `[slug]`: Dynamic route for individual blog posts.
-    -   `create`: Route for uploading markdown files to create new blog posts.
+1. Run the development server:
+    ```bash
+    npm run dev
+    ```
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the Gnu v3.0.
