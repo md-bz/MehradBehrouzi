@@ -34,3 +34,6 @@ static/blog/*
 # Wrangler
 wrangler*
 .wrangler*
+
+# Todo
+todo.txt
