@@ -31,8 +31,11 @@ export const actions = {
         const name = data.get("name");
         const description = data.get("description");
         let file = data.get("file");
+        const language = data.get("language");
 
-        if (!file || !name || !description) return fail(422, { missing: true });
+        if (!file || !name || !description || !language)
+            return fail(422, { missing: true });
+
         file = file as File;
 
         const author = (await locals.getSession())?.user;
@@ -43,6 +46,9 @@ export const actions = {
 
         if (!authorName || !authorEmail)
             return fail(422, { missingAuthor: true });
+
+        if (language !== "fa" && language !== "en")
+            return fail(422, { wrongLanguage: true });
 
         if (file.type !== "text/markdown")
             return fail(422, { wrongType: true });
@@ -68,6 +74,7 @@ export const actions = {
             author_name: authorName,
             slug,
             url,
+            language,
         });
 
         const telegramMarkdown = telegramifyMarkdown(fileText, "keep");

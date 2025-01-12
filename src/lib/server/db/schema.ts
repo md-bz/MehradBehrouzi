@@ -9,6 +9,7 @@ export const post = pgTable("post", {
     slug: text("slug").notNull(),
     description: text("description").notNull(),
     url: text("url").notNull(),
+    language: text("language").notNull().default("fa"),
 });
 
 export type Post = InferInsertModel<typeof post>;

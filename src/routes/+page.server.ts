@@ -1,19 +1,29 @@
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
 import type { Cookies } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
+import { eq } from "drizzle-orm";
 
-export async function load() {
+export const load: PageServerLoad = async ({ cookies }) => {
+    let lang = cookies.get("lang");
+    if (!lang || (lang !== "en" && lang !== "fa")) {
+        lang = "fa";
+        cookies.set("lang", lang, { path: "/", expires: undefined });
+    }
+
     const posts = await db
         .select({
             name: post.name,
             author: post.author_name,
             slug: post.slug,
             description: post.description,
+            language: post.language,
         })
-        .from(post);
+        .from(post)
+        .where(eq(post.language, lang));
 
     return { posts };
-}
+};
 
 export const actions = {
     changeLang: async ({ cookies }: { cookies: Cookies }) => {
