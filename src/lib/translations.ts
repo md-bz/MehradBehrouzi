@@ -15,16 +15,16 @@ const config = {
             loader: async () => (await import("./en/nav.json")).default,
         },
         {
-            locale: "ir",
+            locale: "fa",
             key: "home",
             routes: ["/"],
-            loader: async () => (await import("./ir/home.json")).default,
+            loader: async () => (await import("./fa/home.json")).default,
         },
         {
-            locale: "ir",
+            locale: "fa",
             key: "nav",
             routes: ["/"],
-            loader: async () => await import("./ir/nav.json"),
+            loader: async () => await import("./fa/nav.json"),
         },
     ],
 };
