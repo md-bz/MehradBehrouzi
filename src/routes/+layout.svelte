@@ -13,7 +13,9 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/" style="color: #3b66f2;">MehradBz</a>
+                    <a href="/" style="font-family: kanit; font-weight:600">
+                        MehradBz
+                    </a>
                 </li>
             </ul>
 

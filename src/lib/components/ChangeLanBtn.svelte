@@ -10,8 +10,7 @@
 <style>
     button {
         margin: 1px;
-        border-radius: 50%;
+        padding: 0.5em;
         border: none;
-        background: none;
     }
 </style>
