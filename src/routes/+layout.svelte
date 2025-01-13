@@ -15,13 +15,16 @@
 </script>
 
 <body style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
-    <header>
+    <header style="direction: ltr;">
         <nav>
             <ul>
                 <li>
                     <a href="/" style="font-family: kanit; font-weight:600">
                         MehradBz
                     </a>
+                </li>
+                <li>
+                    <ChangeThemeBtn theme={data.theme} />
                 </li>
             </ul>
 
@@ -31,9 +34,6 @@
                 </li> -->
                 <li>
                     <ChangeLangBtn lang={data.lang} />
-                </li>
-                <li>
-                    <ChangeThemeBtn theme={data.theme} />
                 </li>
 
                 {#if data.session?.user}
