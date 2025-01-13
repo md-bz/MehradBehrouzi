@@ -32,4 +32,10 @@ export const actions = {
         cookies.set("lang", newLang, { path: "/", expires: undefined });
         redirect(302, "/");
     },
+    changeTheme: async ({ cookies }: { cookies: Cookies }) => {
+        const theme = cookies.get("theme");
+        const newTheme = theme === "light" ? "dark" : "light";
+        cookies.set("theme", newTheme, { path: "/", expires: undefined });
+        redirect(302, "/");
+    },
 };
