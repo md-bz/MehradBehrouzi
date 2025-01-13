@@ -1,6 +1,7 @@
 <script>
-    export let theme;
+    export let theme = "dark";
     import { enhance } from "$app/forms";
+    import MoonSun from "./MoonSun.svelte";
 </script>
 
 <form
@@ -8,21 +9,23 @@
     method="post"
     use:enhance={() => {
         return async ({ update }) => {
-            document.documentElement.setAttribute(
-                "data-theme",
-                theme === "light" ? "dark" : "light"
-            );
+            theme = theme === "light" ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", theme);
             update();
         };
     }}
 >
-    <button type="submit">{theme}</button>
+    <button type="submit">
+        <MoonSun {theme} />
+    </button>
 </form>
 
 <style>
     button {
-        margin: 1px;
-        padding: 0.5em;
-        border: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: none;
     }
 </style>
