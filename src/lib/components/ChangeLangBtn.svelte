@@ -1,9 +1,8 @@
 <script>
     export let lang;
-    import { enhance } from "$app/forms";
 </script>
 
-<form action="/?/changeLang" method="post" use:enhance>
+<form action="/?/changeLang" method="post">
     <button type="submit">{lang}</button>
 </form>
 

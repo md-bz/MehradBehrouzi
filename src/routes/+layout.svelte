@@ -1,5 +1,5 @@
 <script>
-    import ChangeLanBtn from "$lib/components/ChangeLanBtn.svelte";
+    import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
     import { loadTranslations } from "$lib/translations";
     import { t } from "$lib/translations";
@@ -30,7 +30,7 @@
                     <a href="/about">{$t("nav.about")}</a>
                 </li> -->
                 <li>
-                    <ChangeLanBtn lang={$t("nav.lang")} />
+                    <ChangeLangBtn lang={data.lang} />
                 </li>
                 <li>
                     <ChangeThemeBtn theme={data.theme} />
