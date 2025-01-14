@@ -2,6 +2,10 @@
     import { enhance } from "$app/forms";
 </script>
 
+<head>
+    <meta name="robots" content="noindex" />
+</head>
+
 <form method="POST" action="?/post" enctype="multipart/form-data" use:enhance>
     <fieldset>
         <label>

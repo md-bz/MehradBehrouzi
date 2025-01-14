@@ -1,7 +1,10 @@
 <script>
+    import SvelteHead from "$lib/components/SvelteHead.svelte";
     import { t } from "$lib/translations";
     export let data;
 </script>
+
+<SvelteHead />
 
 <ul style="padding: 0; margin: 0;">
     {#each data.posts as { name, slug, author, description }}
