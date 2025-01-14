@@ -1,6 +1,7 @@
 <script>
     import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
+    import SvelteHead from "$lib/components/SvelteHead.svelte";
     import { loadTranslations } from "$lib/translations";
     import { t } from "$lib/translations";
 
@@ -13,6 +14,8 @@
         document.documentElement.setAttribute("data-theme", theme);
     }
 </script>
+
+<SvelteHead />
 
 <body style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
     <header style="direction: ltr;">
