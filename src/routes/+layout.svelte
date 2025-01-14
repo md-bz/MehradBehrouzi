@@ -33,7 +33,7 @@
                     <a href="/about">{$t("nav.about")}</a>
                 </li> -->
                 <li>
-                    <ChangeLangBtn lang={data.lang} />
+                    <ChangeLangBtn lang={$t("nav.lang")} />
                 </li>
 
                 {#if data.session?.user}
