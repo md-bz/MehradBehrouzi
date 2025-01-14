@@ -6,7 +6,7 @@ Welcome to the repository for my personal website! This is a minimalist website 
 
 -   **Name:** mehradbz
 -   **Framework:** [SvelteKit](https://kit.svelte.dev/)
--   **Database:** [Drizzle ORM](https://orm.drizzle.team/) with support for SQLite and NeonDB
+-   **Database:** [Drizzle ORM](https://orm.drizzle.team/) with NeonDB
 -   **Markdown Rendering:** Powered by [markdown-it](https://github.com/markdown-it/markdown-it) and [telegramify-markdown](https://github.com/mehradbz/telegramify-markdown) for telegram markdown rendering
 
 ## Features
@@ -27,7 +27,7 @@ Welcome to the repository for my personal website! This is a minimalist website 
 ### Backend
 
 -   **Database ORM:** Drizzle ORM
--   **Database:** SQLite (might get removed), NeonDB
+-   **Database:** NeonDB
 -   **Authentication:** @auth/sveltekit with GitHub OAuth
 -   **File Management:** @vercel/blob
 
