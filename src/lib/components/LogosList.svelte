@@ -15,7 +15,7 @@
     .logos {
         padding: 100px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         margin: auto;
         align-items: center;
         gap: 8px;

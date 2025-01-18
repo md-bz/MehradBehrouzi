@@ -10,11 +10,11 @@
         "expressjs",
         "nestjs",
         "nextjs",
+        "sveltejs",
         "mongodb",
         "postgresql",
-        "git",
         "supabase",
-        "sveltejs",
+        "git",
         "tailwindcss",
     ];
 </script>
@@ -24,8 +24,11 @@
 <div class="hero">
     <div>
         <small>Hi, my name is</small>
-        <h1 class="name"><strong>Mehrad Behrouzi</strong></h1>
-        <h5>I'm a fullstack developer focused on backend.</h5>
+        <h1 class="name">Mehrad Behrouzi</h1>
+        <h6>
+            I'm a fullstack developer focused on
+            <strong>backend</strong>
+        </h6>
     </div>
 </div>
 
@@ -40,13 +43,14 @@
     <LogosList {logos} />
 </div>
 
-<ul class="projects">
-    //todo :add this projects
-    <li>HyperChat</li>
-    <li>SecureFileStorage</li>
-    <li>SpottyDl bot</li>
-    <li>MehradBz (this site)</li>
-</ul>
+<div>
+    <ul class="projects">
+        <li>HyperChat</li>
+        <li>SecureFileStorage</li>
+        <li>SpottyDl bot</li>
+        <li>MehradBz (this site)</li>
+    </ul>
+</div>
 
 <style>
     .hero {
@@ -58,16 +62,23 @@
         text-align: left;
         height: 70vh;
         padding: 1em;
+        margin-bottom: 10em;
     }
+
     .name {
-        font-size: 3em;
-        margin: 0;
+        font-size: 5em;
+        font-weight: 400;
+        line-height: 0.9em;
+        margin: 0 0 0.8em 0;
         /* padding: 0; */
     }
     small {
         color: var(--pico-primary);
     }
-    .skills strong {
+    .skills {
+        margin: 5em 0;
+    }
+    strong {
         color: var(--pico-primary);
     }
 </style>
