@@ -1,5 +1,6 @@
 <script>
     import LogosList from "$lib/components/LogosList.svelte";
+    import ProjectCard from "$lib/components/ProjectCard.svelte";
     import SvelteHead from "$lib/components/SvelteHead.svelte";
     // import { t } from "$lib/translations";
     // export let data;
@@ -43,13 +44,20 @@
     <LogosList {logos} />
 </div>
 
-<div>
-    <ul class="projects">
-        <li>HyperChat</li>
-        <li>SecureFileStorage</li>
-        <li>SpottyDl bot</li>
-        <li>MehradBz (this site)</li>
-    </ul>
+<div class="projects">
+    <h2>Projects</h2>
+
+    <ProjectCard
+        name="MehradBz (this site)"
+        description="Personal website and Blog with dark/light theme, Persian/English languages
+         support,written in SvelteKit with typescript, NeonDB for postgresql database and Drizzle ORM , deployed on vercel using vercel blob storage."
+        link="https://github.com/md-bz/mehradbz"
+    />
+    <ProjectCard
+        name="HyperChat"
+        description="Chat app backend written in javascript with HyperExpress and Mongodb."
+        link="https://github.com/md-bz/Hyper-Chat"
+    />
 </div>
 
 <style>
@@ -80,5 +88,10 @@
     }
     strong {
         color: var(--pico-primary);
+    }
+    .projects {
+        padding: 5em 0;
+        display: grid;
+        gap: 1em;
     }
 </style>
