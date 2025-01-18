@@ -6,19 +6,31 @@
     {#each logos as logo}
         <li class="logo">
             <img src="/{logo}.svg" alt={logo} />
+            {logo.slice(0, 1).toUpperCase() + logo.slice(1)}
         </li>
     {/each}
 </ul>
 
 <style>
     .logos {
+        padding: 100px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
         margin: auto;
+        align-items: center;
+        gap: 8px;
     }
     .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         list-style: none;
-        width: 60px;
-        margin: 10px 2px;
+        width: 120px;
+        margin: 10px 0;
+        text-align: center;
+    }
+    .logo img {
+        width: 70%;
+        height: auto;
     }
 </style>
