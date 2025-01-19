@@ -16,35 +16,38 @@
 </script>
 
 <SvelteHead />
-<header style="direction: ltr;">
-    <nav>
-        <ul>
-            <li>
-                <a href="/" style="font-family: kanit; font-weight:600">
-                    MehradBz
-                </a>
-            </li>
 
-            <li>
-                <a href="/blog">{$t("nav.blog")}</a>
-            </li>
-        </ul>
+<div id="root">
+    <header style="direction: ltr;">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/" style="font-family: kanit; font-weight:600">
+                        MehradBz
+                    </a>
+                </li>
 
-        <ul>
-            <li>
-                <ChangeLangBtn lang={data.lang} />
-            </li>
-            <li>
-                <ChangeThemeBtn theme={data.theme} />
-            </li>
+                <li>
+                    <a href="/blog">{$t("nav.blog")}</a>
+                </li>
+            </ul>
 
-            {#if data.session?.user}
-                <li><a href="/create">{$t("nav.create")}</a></li>
-            {/if}
-        </ul>
-    </nav>
-</header>
+            <ul>
+                <li>
+                    <ChangeLangBtn lang={data.lang} />
+                </li>
+                <li>
+                    <ChangeThemeBtn theme={data.theme} />
+                </li>
 
-<main style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
-    {@render children?.()}
-</main>
+                {#if data.session?.user}
+                    <li><a href="/create">{$t("nav.create")}</a></li>
+                {/if}
+            </ul>
+        </nav>
+    </header>
+
+    <main style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
+        {@render children?.()}
+    </main>
+</div>
