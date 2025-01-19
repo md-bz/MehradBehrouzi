@@ -1,7 +1,5 @@
-<script>
-    export let name;
-    export let description;
-    export let link;
+<script lang="ts">
+    let { name, description, link } = $props();
 </script>
 
 <article>

@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
     import { t } from "$lib/translations";
-    export let data;
+    let { data } = $props();
 </script>
 
 <ul style="padding: 0; margin: 0;">

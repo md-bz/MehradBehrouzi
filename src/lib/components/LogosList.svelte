@@ -1,5 +1,5 @@
-<script>
-    export let logos;
+<script lang="ts">
+    let { logos } = $props();
 </script>
 
 <ul class="logos">

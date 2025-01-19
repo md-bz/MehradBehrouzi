@@ -1,11 +1,11 @@
 <script>
     import { page } from "$app/state";
 
-    $: segments = page.url.pathname
+    let segments = $derived(page.url.pathname
         .split("/")
-        .filter((segment) => segment !== "");
+        .filter((segment) => segment !== ""));
 
-    $: breadcrumbs = segments.map((segment, index) => {
+    let breadcrumbs = $derived(segments.map((segment, index) => {
         const path = "/" + segments.slice(0, index + 1).join("/");
         return {
             name:
@@ -13,7 +13,7 @@
                 segment.slice(1).replace(/-/g, " "),
             path,
         };
-    });
+    }));
 </script>
 
 <nav aria-label="Breadcrumb" class="breadcrumb">

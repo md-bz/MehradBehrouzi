@@ -1,5 +1,5 @@
-<script>
-    export let lang;
+<script lang="ts">
+    let { lang } = $props();
 </script>
 
 <form action="/?/changeLang" method="post">
