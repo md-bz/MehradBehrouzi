@@ -4,9 +4,9 @@ const config = {
     loaders: [
         {
             locale: "en",
-            key: "home",
+            key: "blog",
             routes: ["/"],
-            loader: async () => (await import("./en/home.json")).default,
+            loader: async () => (await import("./en/blog.json")).default,
         },
         {
             locale: "en",
@@ -16,9 +16,9 @@ const config = {
         },
         {
             locale: "fa",
-            key: "home",
+            key: "blog",
             routes: ["/"],
-            loader: async () => (await import("./fa/home.json")).default,
+            loader: async () => (await import("./fa/blog.json")).default,
         },
         {
             locale: "fa",

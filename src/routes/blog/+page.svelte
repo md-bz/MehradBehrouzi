@@ -9,7 +9,7 @@
             <h3>{name}</h3>
             <hr />
             {description}
-            <footer><a href="./blog/{slug}">{$t("home.read")}</a></footer>
+            <footer><a href="./blog/{slug}">{$t("blog.read")}</a></footer>
         </article>
     {/each}
 </ul>
