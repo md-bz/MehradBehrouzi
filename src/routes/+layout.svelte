@@ -26,17 +26,18 @@
                         MehradBz
                     </a>
                 </li>
+
                 <li>
-                    <ChangeThemeBtn theme={data.theme} />
+                    <a href="/blog">{$t("nav.blog")}</a>
                 </li>
             </ul>
 
             <ul>
-                <!-- <li>
-                    <a href="/about">{$t("nav.about")}</a>
-                </li> -->
                 <li>
                     <ChangeLangBtn lang={data.lang} />
+                </li>
+                <li>
+                    <ChangeThemeBtn theme={data.theme} />
                 </li>
 
                 {#if data.session?.user}

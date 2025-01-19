@@ -22,7 +22,7 @@
 
 <style>
     button {
-        margin: 5px 0;
+        margin: 8px 0;
         padding: 0;
         border: 0;
         border-radius: 50%;
