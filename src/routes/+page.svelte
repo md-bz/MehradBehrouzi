@@ -34,13 +34,15 @@
 </div>
 
 <div class="skills">
-    <h2>Skills</h2>
-    <p>
-        I strongly believe programming languages, frameworks and such are
-        <strong>not important</strong>
-        and are just tools. However this are some of the technologies I'm comfortable
-        but not bound to:
-    </p>
+    <div class="text">
+        <h2>Skills</h2>
+        <p>
+            I strongly believe programming languages, frameworks and such are
+            <strong>not important</strong>
+            and are just tools. However this are some of the technologies I'm comfortable
+            but not bound to:
+        </p>
+    </div>
     <LogosList {logos} />
 </div>
 
@@ -83,9 +85,18 @@
     small {
         color: var(--pico-primary);
     }
-    .skills {
-        margin: 5em 0;
+
+    @media screen and (min-width: 1080px) {
+        .skills {
+            margin: 5em 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .skills .text {
+            max-width: 30%;
+        }
     }
+
     strong {
         color: var(--pico-primary);
     }
