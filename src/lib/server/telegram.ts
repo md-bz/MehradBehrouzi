@@ -7,3 +7,11 @@ export async function sendToTelegram(markdown: string) {
         }&text=${encodeURIComponent(markdown)}&parse_mode=MarkdownV2`
     );
 }
+
+export async function sendToTelegramPrivate(text: string) {
+    await fetch(
+        `https://api.telegram.org/bot${env.BOT_TOKEN}/sendMessage?chat_id=${
+            env.TELEGRAM_PRIVATE_ID
+        }&text=${encodeURIComponent(text)}`
+    );
+}

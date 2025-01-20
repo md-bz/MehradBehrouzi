@@ -1,4 +1,5 @@
 <script>
+    import { enhance } from "$app/forms";
     import LogosList from "$lib/components/LogosList.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import SvelteHead from "$lib/components/SvelteHead.svelte";
@@ -60,6 +61,34 @@
         description="Chat app backend written in javascript with HyperExpress and Mongodb."
         link="https://github.com/md-bz/Hyper-Chat"
     />
+</div>
+
+<div class="contact">
+    <h2>Contact</h2>
+    <form method="POST" action="?/contact" use:enhance>
+        <fieldset>
+            <label>
+                Name
+                <input required type="text" name="name" min="3" max="20" />
+            </label>
+            <label>
+                Email
+                <input required type="email" name="email" />
+            </label>
+
+            <label>
+                Description
+                <textarea
+                    name="description"
+                    rows="5"
+                    cols="40"
+                    required
+                    maxlength="400"
+                ></textarea>
+            </label>
+        </fieldset>
+        <input type="submit" value="Send" />
+    </form>
 </div>
 
 <style>
