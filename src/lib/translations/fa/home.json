@@ -1,0 +1,27 @@
+{
+    "hero": {
+        "subtitle": "",
+        "name": "مهراد بهروزی",
+        "description": "توسع‌دهنده‌ فول‌استک با تمرکز روی <strong>بک‌اند</strong> "
+    },
+    "skills": {
+        "title": "مهارت‌ها",
+        "description": "باور دارم زبان‌های برنامه‌نویسی، فریم‌ورک‌ها و... صرفا ابزار هستن و چندان <strong>اهمیت ندارند</strong> . اما برخی از تکنولوژی‌هایی که استفاده میکنم شامل:"
+    },
+    "projects": {
+        "title": "پروژه‌ها",
+        "MehradBz": {
+            "description": "وب‌سایت و بلاگ شخصی نوشته شده با SvelteKit "
+        },
+        "HyperChat": {
+            "description": "بک‌اندِ نرم‌افزار چت نوشته شده با HyperExpress و  Mognodb"
+        }
+    },
+    "contact": {
+        "title": "ارتباط",
+        "name": "نام",
+        "email": "ایمیل",
+        "description": "توضیحات",
+        "send": "ارسال"
+    }
+}

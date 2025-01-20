@@ -3,8 +3,8 @@
     import LogosList from "$lib/components/LogosList.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import SvelteHead from "$lib/components/SvelteHead.svelte";
-    // import { t } from "$lib/translations";
-    // export let data;
+    import { t } from "$lib/translations";
+    export let data;
     const logos = [
         "javascript",
         "typescript",
@@ -23,61 +23,55 @@
 
 <SvelteHead />
 
-<div class="hero">
+<div class="hero" style="text-align: {data.lang === 'en' ? 'left' : 'right'};">
     <div>
-        <small>Hi, my name is</small>
-        <h1 class="name">Mehrad Behrouzi</h1>
+        <small>{$t("home.hero.subtitle")}</small>
+        <h1 class="name">{$t("home.hero.name")}</h1>
         <h6>
-            I'm a fullstack developer focused on
-            <strong>backend</strong>
+            {@html $t("home.hero.description")}
         </h6>
     </div>
 </div>
 
 <div class="skills">
     <div class="text">
-        <h2>Skills</h2>
+        <h2>{$t("home.skills.title")}</h2>
         <p>
-            I strongly believe programming languages, frameworks and such are
-            <strong>not important</strong>
-            and are just tools. However this are some of the technologies I'm comfortable
-            but not bound to:
+            {@html $t("home.skills.description")}
         </p>
     </div>
     <LogosList {logos} />
 </div>
 
 <div class="projects">
-    <h2>Projects</h2>
-
+    <h2>{$t("home.projects.title")}</h2>
     <ProjectCard
-        name="MehradBz (this site)"
-        description="Personal website and Blog with dark/light theme, Persian/English languages
-         support,written in SvelteKit with typescript, NeonDB for postgresql database and Drizzle ORM , deployed on vercel using vercel blob storage."
+        name="MehradBz"
+        description={$t("home.projects.MehradBz.description")}
         link="https://github.com/md-bz/mehradbz"
     />
     <ProjectCard
         name="HyperChat"
-        description="Chat app backend written in javascript with HyperExpress and Mongodb."
+        description={$t("home.projects.HyperChat.description")}
         link="https://github.com/md-bz/Hyper-Chat"
     />
 </div>
 
 <div class="contact">
-    <h2>Contact</h2>
+    <h2>{$t("home.contact.title")}</h2>
     <form method="POST" action="?/contact" use:enhance>
         <fieldset>
             <label>
-                Name
+                {$t("home.contact.name")}
                 <input required type="text" name="name" min="3" max="20" />
             </label>
             <label>
-                Email
+                {$t("home.contact.email")}
                 <input required type="email" name="email" />
             </label>
 
             <label>
-                Description
+                {$t("home.contact.description")}
                 <textarea
                     name="description"
                     rows="5"
@@ -87,7 +81,7 @@
                 ></textarea>
             </label>
         </fieldset>
-        <input type="submit" value="Send" />
+        <input type="submit" value={$t("home.contact.send")} />
     </form>
 </div>
 
@@ -98,7 +92,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: left;
         height: 70vh;
         padding: 1em;
         margin-bottom: 10em;
@@ -109,7 +102,6 @@
         font-weight: 400;
         line-height: 0.9em;
         margin: 0 0 0.8em 0;
-        /* padding: 0; */
     }
     small {
         color: var(--pico-primary);
@@ -126,9 +118,6 @@
         }
     }
 
-    strong {
-        color: var(--pico-primary);
-    }
     .projects {
         padding: 5em 0;
         display: grid;

@@ -22,4 +22,7 @@
         display: flex;
         justify-content: center;
     }
+    h3 {
+        text-align: center;
+    }
 </style>

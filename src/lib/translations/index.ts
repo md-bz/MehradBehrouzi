@@ -26,6 +26,18 @@ const config = {
             routes: ["/"],
             loader: async () => await import("./fa/nav.json"),
         },
+        {
+            locale: "en",
+            key: "home",
+            routes: ["/"],
+            loader: async () => (await import("./en/home.json")).default,
+        },
+        {
+            locale: "fa",
+            key: "home",
+            routes: ["/"],
+            loader: async () => (await import("./fa/home.json")).default,
+        },
     ],
 };
 
