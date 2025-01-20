@@ -50,4 +50,6 @@
     <main style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
         {@render children?.()}
     </main>
+
+    <hr />
 </div>
