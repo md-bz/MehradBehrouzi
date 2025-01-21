@@ -93,7 +93,12 @@ export const actions = {
         }
 
         const telegramMarkdown = telegramifyMarkdown(fileText, "keep");
-        await sendToTelegram(telegramMarkdown);
+        try {
+            await sendToTelegram(telegramMarkdown);
+        } catch (error) {
+            console.error(error);
+            return fail(500, { error: "telegram error" });
+        }
 
         return { success: true };
     },

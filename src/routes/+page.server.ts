@@ -68,10 +68,16 @@ export const actions = {
                 message: "description must be less than 400 characters",
             });
         }
-
-        await sendToTelegramPrivate(
-            ` New message\n\n name${name}\n\nEmail: ${email}\n\nDescription: ${description}`
-        );
+        try {
+            await sendToTelegramPrivate(
+                ` New message\n\n name${name}\n\nEmail: ${email}\n\nDescription: ${description}`
+            );
+        } catch (error) {
+            console.error(error);
+            return fail(500, {
+                error: "something went wrong, please try again later",
+            });
+        }
 
         return { success: true };
     },
