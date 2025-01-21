@@ -33,6 +33,7 @@ export const actions = {
         const description = data.get("description");
         let file = data.get("file");
         const language = data.get("language");
+        let slug = data.get("slug") as string;
 
         if (!file || !name || !description || !language)
             return fail(422, { missing: true });
@@ -57,7 +58,12 @@ export const actions = {
         if (file.size > maxSize * 1000 * 1000)
             return fail(422, { tooLarge: true });
 
-        const slug = name.toString().replace(/\s/g, "-").toLowerCase();
+        if (language === "fa" && !slug) {
+            return fail(422, { slugRequired: true });
+        }
+
+        slug = slug || name.toString();
+        slug = slug.replace(/\s/g, "-").toLowerCase();
 
         const md = markdownIt();
         const fileText = await file.text();

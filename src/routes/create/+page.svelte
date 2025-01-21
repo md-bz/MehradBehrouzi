@@ -13,6 +13,10 @@
             <input required type="text" name="name" />
         </label>
         <label>
+            Slug
+            <input type="text" name="slug" />
+        </label>
+        <label>
             Description
             <input required type="text" name="description" />
         </label>
