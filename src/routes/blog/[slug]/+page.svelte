@@ -1,5 +1,5 @@
-<script>
-    export let data;
+<script lang="ts">
+    let { data } = $props();
 </script>
 
 <!-- <header>{data.info.name} by {data.info.author_name}</header> -->
@@ -15,4 +15,10 @@
     <title>{data.info.name}</title>
 </svelte:head>
 <hr />
+{#if data.session?.user}
+    <form action="?/delete" method="post">
+        <input type="hidden" name="slug" value={data.info.slug} />
+        <button type="submit">Delete</button>
+    </form>
+{/if}
 {@html data.html}

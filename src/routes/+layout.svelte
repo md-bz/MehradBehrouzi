@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
     import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
+    import GithubLink from "$lib/components/GithubLink.svelte";
     import SvelteHead from "$lib/components/SvelteHead.svelte";
     import { loadTranslations } from "$lib/translations";
     import { t } from "$lib/translations";
 
-    export let data;
+    let { data, children } = $props();
 
     loadTranslations(data.lang, "/");
 
@@ -17,7 +18,7 @@
 
 <SvelteHead />
 
-<body style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
+<div id="root">
     <header style="direction: ltr;">
         <nav>
             <ul>
@@ -26,27 +27,32 @@
                         MehradBz
                     </a>
                 </li>
+
                 <li>
-                    <ChangeThemeBtn theme={data.theme} />
+                    <a href="/blog">{$t("nav.blog")}</a>
                 </li>
             </ul>
 
             <ul>
-                <!-- <li>
-                    <a href="/about">{$t("nav.about")}</a>
-                </li> -->
-                <li>
-                    <ChangeLangBtn lang={$t("nav.lang")} />
-                </li>
-
                 {#if data.session?.user}
                     <li><a href="/create">{$t("nav.create")}</a></li>
                 {/if}
+                <li>
+                    <ChangeLangBtn lang={data.lang} />
+                </li>
+                <li>
+                    <GithubLink />
+                </li>
+                <li>
+                    <ChangeThemeBtn theme={data.theme} />
+                </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <slot></slot>
+    <main style="direction: {data.lang === 'en' ? 'ltr' : 'rtl'};">
+        {@render children?.()}
     </main>
-</body>
+
+    <hr />
+</div>

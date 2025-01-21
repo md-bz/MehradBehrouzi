@@ -1,7 +1,11 @@
-<script>
-    export let theme = "dark";
+<script lang="ts">
     import { enhance } from "$app/forms";
     import MoonSun from "./MoonSun.svelte";
+    interface Props {
+        theme?: string;
+    }
+
+    let { theme = $bindable("dark") }: Props = $props();
 </script>
 
 <form
@@ -22,7 +26,7 @@
 
 <style>
     button {
-        margin: 5px 0;
+        margin: 8px 0;
         padding: 0;
         border: 0;
         border-radius: 50%;

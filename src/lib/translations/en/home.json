@@ -1,0 +1,27 @@
+{
+    "hero": {
+        "subtitle": "Hi, my name is",
+        "name": "Mehrad Behrouzi",
+        "description": "I'm a fullstack developer focused on backend"
+    },
+    "skills": {
+        "title": "Skills",
+        "description": "I strongly believe programming languages, frameworks and such are <strong>not important</strong> and are just tools. However this are some of the technologies I'm comfortable but not bound to"
+    },
+    "projects": {
+        "title": "Projects",
+        "MehradBz": {
+            "description": "Personal website and blog written in sveltekit."
+        },
+        "HyperChat": {
+            "description": "Chat app backend written with HyperExpress and Mongodb."
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "name": "Name",
+        "email": "Email",
+        "description": "Description",
+        "send": "Send"
+    }
+}

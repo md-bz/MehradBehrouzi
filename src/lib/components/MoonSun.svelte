@@ -1,5 +1,9 @@
-<script>
-    export let theme = "light"; // Default theme is light
+<script lang="ts">
+    interface Props {
+        theme?: string; // Default theme is light
+    }
+
+    let { theme = "light" }: Props = $props();
 </script>
 
 <div class="icon {theme}">
