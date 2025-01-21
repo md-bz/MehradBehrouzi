@@ -13,6 +13,9 @@
 </article>
 
 <style>
+    article {
+        text-align: center;
+    }
     img {
         width: 35px;
         height: 35px;
@@ -21,8 +24,5 @@
         width: 100%;
         display: flex;
         justify-content: center;
-    }
-    h3 {
-        text-align: center;
     }
 </style>

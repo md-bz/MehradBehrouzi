@@ -45,16 +45,18 @@
 
 <div class="projects">
     <h2>{$t("home.projects.title")}</h2>
-    <ProjectCard
-        name="MehradBz"
-        description={$t("home.projects.MehradBz.description")}
-        link="https://github.com/md-bz/mehradbz"
-    />
-    <ProjectCard
-        name="HyperChat"
-        description={$t("home.projects.HyperChat.description")}
-        link="https://github.com/md-bz/Hyper-Chat"
-    />
+    <div class="project_container">
+        <ProjectCard
+            name="MehradBz"
+            description={$t("home.projects.MehradBz.description")}
+            link="https://github.com/md-bz/mehradbz"
+        />
+        <ProjectCard
+            name="HyperChat"
+            description={$t("home.projects.HyperChat.description")}
+            link="https://github.com/md-bz/Hyper-Chat"
+        />
+    </div>
 </div>
 
 <div class="contact">
@@ -120,7 +122,17 @@
 
     .projects {
         padding: 5em 0;
+        justify-content: center;
+    }
+    .project_container {
         display: grid;
-        gap: 1em;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vw;
+        justify-content: space-around;
+    }
+    @media screen and (max-width: 960px) {
+        .project_container {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
