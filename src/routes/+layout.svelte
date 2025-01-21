@@ -38,7 +38,7 @@
                     <li><a href="/create">{$t("nav.create")}</a></li>
                 {/if}
                 <li>
-                    <ChangeLangBtn lang={data.lang} />
+                    <ChangeLangBtn lang={$t("nav.lang")} />
                 </li>
                 <li>
                     <GithubLink />
