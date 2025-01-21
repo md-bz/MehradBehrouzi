@@ -44,30 +44,52 @@ export const actions = {
 
         const name = form.get("name") as string;
         if (!name) {
-            return fail(422, { message: "name is required" });
+            return fail(422, {
+                nameIsInvalid: true,
+                missing: true,
+                message: "Name is required.",
+            });
         }
         if (name.length < 3 || name.length > 20) {
             return fail(422, {
-                message: "name must be between 3 and 20 characters",
+                nameIsInvalid: true,
+                invalid: true,
+                message: "Name must be between 3 and 20 characters.",
             });
         }
 
         const email = form.get("email") as string;
-        if (!email) return fail(422, { message: "email is required" });
-
+        if (!email) {
+            return fail(422, {
+                emailIsInvalid: true,
+                missing: true,
+                message: "Email is required.",
+            });
+        }
         if (!email.includes("@")) {
-            return fail(422, { message: "email must be valid" });
+            return fail(422, {
+                emailIsInvalid: true,
+                invalid: true,
+                message: "Email must be valid.",
+            });
         }
 
         const description = form.get("description") as string;
         if (!description) {
-            return fail(422, { message: "description is required" });
+            return fail(422, {
+                descriptionIsInvalid: true,
+                missing: true,
+                message: "Description is required.",
+            });
         }
         if (description.length > 400) {
             return fail(422, {
-                message: "description must be less than 400 characters",
+                descriptionIsInvalid: true,
+                invalid: true,
+                message: "Description cannot exceed 400 characters.",
             });
         }
+
         try {
             await sendToTelegramPrivate(
                 ` New message\n\n name${name}\n\nEmail: ${email}\n\nDescription: ${description}`
@@ -75,7 +97,8 @@ export const actions = {
         } catch (error) {
             console.error(error);
             return fail(500, {
-                error: "something went wrong, please try again later",
+                serverError: true,
+                message: "something went wrong, please try again later",
             });
         }
 

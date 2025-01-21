@@ -4,7 +4,10 @@
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import SvelteHead from "$lib/components/SvelteHead.svelte";
     import { t } from "$lib/translations";
-    export let data;
+    let { data, form } = $props();
+
+    let formIsLoading = $state(false);
+
     const logos = [
         "javascript",
         "typescript",
@@ -61,15 +64,49 @@
 
 <div class="contact">
     <h2>{$t("home.contact.title")}</h2>
-    <form method="POST" action="?/contact" use:enhance>
+    <form
+        method="POST"
+        action="?/contact"
+        use:enhance={() => {
+            formIsLoading = true;
+            return ({ result, update }) => {
+                formIsLoading = false;
+                update();
+            };
+        }}
+    >
+        {#if form?.serverError}
+            <p style="color: var(--pico-del-color);">{form?.message}</p>
+        {/if}
         <fieldset>
             <label>
                 {$t("home.contact.name")}
-                <input required type="text" name="name" min="3" max="20" />
+                <input
+                    required
+                    type="text"
+                    name="name"
+                    min="3"
+                    max="20"
+                    aria-invalid={form?.nameIsInvalid}
+                    aria-describedby="name-invalid"
+                />
+                {#if form?.nameIsInvalid}
+                    <small id="name-invalid">{form?.message}</small>
+                {/if}
             </label>
+
             <label>
                 {$t("home.contact.email")}
-                <input required type="email" name="email" />
+                <input
+                    required
+                    type="email"
+                    name="email"
+                    aria-invalid={form?.emailIsInvalid}
+                    aria-describedby="email-invalid"
+                />
+                {#if form?.emailIsInvalid}
+                    <small id="email-invalid">{form?.message}</small>
+                {/if}
             </label>
 
             <label>
@@ -80,10 +117,18 @@
                     cols="40"
                     required
                     maxlength="400"
+                    aria-invalid={form?.descriptionIsInvalid}
+                    aria-describedby="description-invalid"
                 ></textarea>
+                {#if form?.descriptionIsInvalid}
+                    <small id="description-invalid">{form?.message}</small>
+                {/if}
             </label>
         </fieldset>
-        <input type="submit" value={$t("home.contact.send")} />
+        <!-- <input type="submit" value={$t("home.contact.send")} aria-busy="true" /> -->
+        <button type="submit" aria-busy={formIsLoading}>
+            {$t("home.contact.send")}
+        </button>
     </form>
 </div>
 
@@ -105,7 +150,7 @@
         line-height: 0.9em;
         margin: 0 0 0.8em 0;
     }
-    small {
+    .hero small {
         color: var(--pico-primary);
     }
 
