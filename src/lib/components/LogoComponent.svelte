@@ -2,12 +2,12 @@
     let { logo, text = true } = $props();
 </script>
 
-<li class="logo">
+<div class="logo">
     <img src="/{logo}.svg" alt={logo} />
     {#if text}
         {logo.slice(0, 1).toUpperCase() + logo.slice(1)}
     {/if}
-</li>
+</div>
 
 <style>
     .logo {
