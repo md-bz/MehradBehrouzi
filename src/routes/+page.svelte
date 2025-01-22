@@ -99,6 +99,9 @@
                     type="text"
                     name="name"
                     min="3"
+                    style="background-position: {data.lang === 'en'
+                        ? 'right'
+                        : 'left'} 10px center;"
                     autocomplete="name"
                     max="20"
                     aria-invalid={form?.nameIsInvalid}
@@ -120,6 +123,9 @@
                 <input
                     required
                     autocomplete="email"
+                    style="background-position: {data.lang === 'en'
+                        ? 'right'
+                        : 'left'} 10px center;"
                     type="email"
                     name="email"
                     aria-invalid={form?.emailIsInvalid}
@@ -143,6 +149,9 @@
                     rows="5"
                     cols="40"
                     autocomplete="off"
+                    style="background-position: {data.lang === 'en'
+                        ? 'right'
+                        : 'left'} 5px top !important;"
                     required
                     maxlength="400"
                     aria-invalid={form?.descriptionIsInvalid}
