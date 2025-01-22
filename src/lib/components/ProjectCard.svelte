@@ -1,28 +1,19 @@
 <script lang="ts">
-    let { name, description, link } = $props();
+    import GithubLink from "./GithubLink.svelte";
+
+    let { name, description, link, theme } = $props();
 </script>
 
 <article>
     <h3>{name}</h3>
     <p>{description}</p>
     <footer>
-        <a href={link}>
-            <img src="/github.svg" alt="github" />
-        </a>
+        <GithubLink {link} {theme} width="35px" marginY="0" />
     </footer>
 </article>
 
 <style>
     article {
         text-align: center;
-    }
-    img {
-        width: 35px;
-        height: 35px;
-    }
-    footer a {
-        width: 100%;
-        display: flex;
-        justify-content: center;
     }
 </style>

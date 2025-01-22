@@ -9,18 +9,18 @@
     let formIsLoading = $state(false);
 
     const logos = [
-        "javascript",
-        "typescript",
-        "go",
-        "expressjs",
-        "nestjs",
-        "nextjs",
-        "sveltejs",
-        "mongodb",
-        "postgresql",
-        "supabase",
-        "git",
-        "tailwindcss",
+        { name: "javascript" },
+        { name: "typescript" },
+        { name: "go" },
+        { name: "expressjs", lightTheme: "expressjs-dark" },
+        { name: "nestjs" },
+        { name: "nextjs" },
+        { name: "sveltejs" },
+        { name: "mongodb" },
+        { name: "postgresql" },
+        { name: "supabase" },
+        { name: "git" },
+        { name: "tailwindcss" },
     ];
 </script>
 
@@ -43,7 +43,7 @@
             {@html $t("home.skills.description")}
         </p>
     </div>
-    <LogosList {logos} />
+    <LogosList theme={data.theme} {logos} />
 </div>
 
 <div class="projects">
@@ -52,11 +52,13 @@
         <ProjectCard
             name="MehradBz"
             description={$t("home.projects.MehradBz.description")}
+            theme={data.theme}
             link="https://github.com/md-bz/mehradbz"
         />
         <ProjectCard
             name="HyperChat"
             description={$t("home.projects.HyperChat.description")}
+            theme={data.theme}
             link="https://github.com/md-bz/Hyper-Chat"
         />
     </div>

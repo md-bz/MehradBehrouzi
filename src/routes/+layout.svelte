@@ -41,7 +41,10 @@
                     <ChangeLangBtn lang={$t("nav.lang")} />
                 </li>
                 <li>
-                    <GithubLink />
+                    <GithubLink
+                        theme={data.theme}
+                        link="https://github.com/md-bz"
+                    />
                 </li>
                 <li>
                     <ChangeThemeBtn theme={data.theme} />

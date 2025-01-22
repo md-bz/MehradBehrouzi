@@ -1,11 +1,15 @@
 <script>
-    let { logo, text = true } = $props();
+    let { logo, text = true, theme = "dark" } = $props();
 </script>
 
 <div class="logo">
-    <img src="/{logo}.svg" alt={logo} />
+    {#if theme === "light" && logo.lightTheme}
+        <img src="/{logo.lightTheme}.svg" alt={logo.name} />
+    {:else}
+        <img src="/{logo.name}.svg" alt={logo.name} />
+    {/if}
     {#if text}
-        {logo.slice(0, 1).toUpperCase() + logo.slice(1)}
+        {logo.name.slice(0, 1).toUpperCase() + logo.name.slice(1)}
     {/if}
 </div>
 

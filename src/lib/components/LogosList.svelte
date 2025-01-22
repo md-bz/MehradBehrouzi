@@ -1,12 +1,12 @@
 <script lang="ts">
     import LogoComponent from "./LogoComponent.svelte";
 
-    let { logos } = $props();
+    let { theme = "dark", logos } = $props();
 </script>
 
 <ul class="logos">
     {#each logos as logo}
-        <LogoComponent {logo} />
+        <LogoComponent {logo} {theme} />
     {/each}
 </ul>
 
