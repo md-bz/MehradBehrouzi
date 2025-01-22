@@ -151,7 +151,7 @@
                     autocomplete="off"
                     style="background-position: {data.lang === 'en'
                         ? 'right'
-                        : 'left'} 5px top !important;"
+                        : 'left'} 10px top !important;"
                     required
                     maxlength="400"
                     aria-invalid={form?.descriptionIsInvalid}
