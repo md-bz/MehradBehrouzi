@@ -2,14 +2,14 @@
     // this page is not linked in any routes, that is by design since no one should
     // be able to access it(and if that do cant log in) other then the programmer
     import { SignIn, SignOut } from "@auth/sveltekit/components";
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
 </script>
 
 <div>
-    {#if $page.data.session}
-        {#if $page.data.session.user?.image}
+    {#if page.data.session}
+        {#if page.data.session.user?.image}
             <img
-                src={$page.data.session.user.image}
+                src={page.data.session.user.image}
                 class="avatar"
                 alt="User Avatar"
             />
@@ -17,7 +17,7 @@
         <span class="signedInText">
             <small>Signed in as</small>
             <br />
-            <strong>{$page.data.session.user?.name ?? "User"}</strong>
+            <strong>{page.data.session.user?.name ?? "User"}</strong>
         </span>
         <SignOut>
             {#snippet submitButton()}
