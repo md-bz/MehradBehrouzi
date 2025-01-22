@@ -18,7 +18,7 @@
 
 <SvelteHead />
 
-<div id="root">
+<div id="root" style={data.lang === "fa" ? "font-family:Vazirmatn;" : ""}>
     <header style="direction: ltr;">
         <nav>
             <ul>
