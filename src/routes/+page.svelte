@@ -74,6 +74,10 @@
             return ({ result, update }) => {
                 formIsLoading = false;
                 update();
+                setTimeout(() => {
+                    // @ts-ignore
+                    form = { ...form, success: false, serverError: false };
+                }, 5000);
             };
         }}
     >
