@@ -38,6 +38,18 @@ const config = {
             routes: ["/"],
             loader: async () => (await import("./fa/home.json")).default,
         },
+        {
+            locale: "en",
+            key: "contact",
+            routes: ["/"],
+            loader: async () => (await import("./en/contact.json")).default,
+        },
+        {
+            locale: "fa",
+            key: "contact",
+            routes: ["/"],
+            loader: async () => (await import("./fa/contact.json")).default,
+        },
     ],
 };
 

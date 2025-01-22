@@ -16,12 +16,5 @@
         "HyperChat": {
             "description": "بک‌اندِ نرم‌افزار چت نوشته شده با HyperExpress و  Mognodb"
         }
-    },
-    "contact": {
-        "title": "ارتباط",
-        "name": "نام",
-        "email": "ایمیل",
-        "description": "توضیحات",
-        "send": "ارسال"
     }
 }

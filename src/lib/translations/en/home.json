@@ -16,12 +16,5 @@
         "HyperChat": {
             "description": "Chat app backend written with HyperExpress and Mongodb."
         }
-    },
-    "contact": {
-        "title": "Contact",
-        "name": "Name",
-        "email": "Email",
-        "description": "Description",
-        "send": "Send"
     }
 }

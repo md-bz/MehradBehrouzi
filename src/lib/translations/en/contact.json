@@ -1,0 +1,23 @@
+{
+    "form": {
+        "title": "Contact",
+        "name": "Name",
+        "email": "Email",
+        "description": "Description",
+        "send": "Send",
+        "serverError": "something went wrong, please try again later",
+        "success": "successfully sent message"
+    },
+    "name": {
+        "required": "Name is required.",
+        "invalid": "Name must be between 3 and 20 characters."
+    },
+    "email": {
+        "required": "Email is required.",
+        "invalid": "Email must be valid."
+    },
+    "description": {
+        "required": "Description is required.",
+        "invalid": "Description cannot exceed 400 characters."
+    }
+}

@@ -65,7 +65,7 @@
 </div>
 
 <div class="contact">
-    <h2>{$t("home.contact.title")}</h2>
+    <h2>{$t("contact.form.title")}</h2>
     <form
         method="POST"
         action="?/contact"
@@ -82,16 +82,18 @@
         }}
     >
         {#if form?.serverError}
-            <b style="color: var(--pico-del-color);">{form?.message}</b>
+            <b style="color: var(--pico-del-color);"
+                >{$t("contact.form.serverError")}</b
+            >
         {/if}
         {#if form?.success}
             <b style="color: var(--pico-ins-color);">
-                successfully sent message
+                {$t("contact.form.success")}
             </b>
         {/if}
         <fieldset>
             <label>
-                {$t("home.contact.name")}
+                {$t("contact.form.name")}
                 <input
                     required
                     type="text"
@@ -103,12 +105,18 @@
                     aria-describedby="name-invalid"
                 />
                 {#if form?.nameIsInvalid}
-                    <small id="name-invalid">{form?.message}</small>
+                    <small id="name-invalid">
+                        {$t(
+                            form.missing
+                                ? "contact.name.required"
+                                : "contact.name.invalid",
+                        )}
+                    </small>
                 {/if}
             </label>
 
             <label>
-                {$t("home.contact.email")}
+                {$t("contact.form.email")}
                 <input
                     required
                     autocomplete="email"
@@ -118,12 +126,18 @@
                     aria-describedby="email-invalid"
                 />
                 {#if form?.emailIsInvalid}
-                    <small id="email-invalid">{form?.message}</small>
+                    <small id="email-invalid">
+                        {$t(
+                            form.missing
+                                ? "contact.email.required"
+                                : "contact.email.invalid",
+                        )}
+                    </small>
                 {/if}
             </label>
 
             <label>
-                {$t("home.contact.description")}
+                {$t("contact.form.description")}
                 <textarea
                     name="description"
                     rows="5"
@@ -135,12 +149,18 @@
                     aria-describedby="description-invalid"
                 ></textarea>
                 {#if form?.descriptionIsInvalid}
-                    <small id="description-invalid">{form?.message}</small>
+                    <small id="description-invalid">
+                        {$t(
+                            form.missing
+                                ? "contact.description.required"
+                                : "contact.description.invalid",
+                        )}
+                    </small>
                 {/if}
             </label>
         </fieldset>
         <button type="submit" aria-busy={formIsLoading}>
-            {$t("home.contact.send")}
+            {$t("contact.form.send")}
         </button>
     </form>
 </div>

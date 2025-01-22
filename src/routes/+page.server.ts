@@ -24,14 +24,12 @@ export const actions = {
             return fail(422, {
                 nameIsInvalid: true,
                 missing: true,
-                message: "Name is required.",
             });
         }
         if (name.length < 3 || name.length > 20) {
             return fail(422, {
                 nameIsInvalid: true,
                 invalid: true,
-                message: "Name must be between 3 and 20 characters.",
             });
         }
 
@@ -40,14 +38,12 @@ export const actions = {
             return fail(422, {
                 emailIsInvalid: true,
                 missing: true,
-                message: "Email is required.",
             });
         }
         if (!email.includes("@")) {
             return fail(422, {
                 emailIsInvalid: true,
                 invalid: true,
-                message: "Email must be valid.",
             });
         }
 
@@ -56,14 +52,12 @@ export const actions = {
             return fail(422, {
                 descriptionIsInvalid: true,
                 missing: true,
-                message: "Description is required.",
             });
         }
         if (description.length > 400) {
             return fail(422, {
                 descriptionIsInvalid: true,
                 invalid: true,
-                message: "Description cannot exceed 400 characters.",
             });
         }
 
@@ -75,7 +69,6 @@ export const actions = {
             console.error(error);
             return fail(500, {
                 serverError: true,
-                message: "something went wrong, please try again later",
             });
         }
 
