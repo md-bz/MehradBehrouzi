@@ -78,7 +78,12 @@
         }}
     >
         {#if form?.serverError}
-            <p style="color: var(--pico-del-color);">{form?.message}</p>
+            <b style="color: var(--pico-del-color);">{form?.message}</b>
+        {/if}
+        {#if form?.success}
+            <b style="color: var(--pico-ins-color);">
+                successfully sent message
+            </b>
         {/if}
         <fieldset>
             <label>
@@ -88,6 +93,7 @@
                     type="text"
                     name="name"
                     min="3"
+                    autocomplete="name"
                     max="20"
                     aria-invalid={form?.nameIsInvalid}
                     aria-describedby="name-invalid"
@@ -101,6 +107,7 @@
                 {$t("home.contact.email")}
                 <input
                     required
+                    autocomplete="email"
                     type="email"
                     name="email"
                     aria-invalid={form?.emailIsInvalid}
@@ -117,6 +124,7 @@
                     name="description"
                     rows="5"
                     cols="40"
+                    autocomplete="off"
                     required
                     maxlength="400"
                     aria-invalid={form?.descriptionIsInvalid}
