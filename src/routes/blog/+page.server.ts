@@ -1,6 +1,5 @@
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
-import { redirect, type Cookies } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import { eq } from "drizzle-orm";
 

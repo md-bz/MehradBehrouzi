@@ -2,8 +2,6 @@
     let { data } = $props();
 </script>
 
-<!-- <header>{data.info.name} by {data.info.author_name}</header> -->
-
 <svelte:head>
     <meta name="description" content={data.info.description} />
     <meta property="og:description" content={data.info.description} />

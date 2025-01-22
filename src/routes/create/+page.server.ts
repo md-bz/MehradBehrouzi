@@ -1,8 +1,8 @@
-import { error, redirect } from "@sveltejs/kit";
+import { error } from "@sveltejs/kit";
 import { env } from "$env/dynamic/private";
 import { db } from "$lib/server/db";
 import { post } from "$lib/server/db/schema";
-import { fail, type Cookies } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
 import markdownIt from "markdown-it";
 import telegramifyMarkdown from "telegramify-markdown";
 import type { PageServerLoad } from "./$types";

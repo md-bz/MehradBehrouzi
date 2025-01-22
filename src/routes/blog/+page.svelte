@@ -4,7 +4,7 @@
 </script>
 
 <ul style="padding: 0; margin: 0;">
-    {#each data.posts as { name, slug, author, description }}
+    {#each data.posts as { name, slug, description }}
         <article>
             <h3>{name}</h3>
             <hr />

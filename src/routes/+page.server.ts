@@ -1,30 +1,7 @@
-import { db } from "$lib/server/db";
-import { post } from "$lib/server/db/schema";
 import { fail, redirect, type Cookies } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
-import { eq } from "drizzle-orm";
 import { sendToTelegramPrivate } from "$lib/server/telegram";
 
-export const load: PageServerLoad = async ({ cookies }) => {
-    let lang = cookies.get("lang");
-    if (!lang || (lang !== "en" && lang !== "fa")) {
-        lang = "fa";
-        cookies.set("lang", lang, { path: "/", expires: undefined });
-    }
-
-    const posts = await db
-        .select({
-            name: post.name,
-            author: post.author_name,
-            slug: post.slug,
-            description: post.description,
-            language: post.language,
-        })
-        .from(post)
-        .where(eq(post.language, lang as "fa" | "en"));
-
-    return { posts };
-};
+export const load = async () => {}; // this is here because form is imported from props in page.svelte
 
 export const actions = {
     changeLang: async ({ cookies }: { cookies: Cookies }) => {
@@ -92,7 +69,7 @@ export const actions = {
 
         try {
             await sendToTelegramPrivate(
-                ` New message\n\n name${name}\n\nEmail: ${email}\n\nDescription: ${description}`
+                ` New message\n\nName:${name}\nEmail: ${email}\n\nDescription: ${description}`
             );
         } catch (error) {
             console.error(error);

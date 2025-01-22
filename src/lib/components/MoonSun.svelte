@@ -1,9 +1,5 @@
 <script lang="ts">
-    interface Props {
-        theme?: string; // Default theme is light
-    }
-
-    let { theme = "light" }: Props = $props();
+    let { theme = "dark" } = $props();
 </script>
 
 <div class="icon {theme}">

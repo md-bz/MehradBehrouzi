@@ -13,7 +13,6 @@ export async function load({ params }: { params: { slug: string } }) {
 
     if (!info) return error(404, "Not found");
 
-    // const html = await readFile(`./static/blog/${info.slug}.html`);
     const res = await fetch(info.url);
     const html = await res.text();
 

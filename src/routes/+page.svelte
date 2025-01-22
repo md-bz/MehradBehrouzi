@@ -71,7 +71,7 @@
         action="?/contact"
         use:enhance={() => {
             formIsLoading = true;
-            return ({ result, update }) => {
+            return ({ update }) => {
                 formIsLoading = false;
                 update();
                 setTimeout(() => {
@@ -139,7 +139,6 @@
                 {/if}
             </label>
         </fieldset>
-        <!-- <input type="submit" value={$t("home.contact.send")} aria-busy="true" /> -->
         <button type="submit" aria-busy={formIsLoading}>
             {$t("home.contact.send")}
         </button>

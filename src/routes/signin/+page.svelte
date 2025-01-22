@@ -21,8 +21,8 @@
         </span>
         <SignOut>
             {#snippet submitButton()}
-                        <div  class="buttonPrimary">Sign out</div>
-                    {/snippet}
+                <div class="buttonPrimary">Sign out</div>
+            {/snippet}
         </SignOut>
     {:else}
         <span class="notSignedInText">You are not signed in</span>
