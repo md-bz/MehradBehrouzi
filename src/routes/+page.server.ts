@@ -69,7 +69,7 @@ export const actions = {
 
         try {
             await sendToTelegramPrivate(
-                ` New message\n\nName:${name}\nEmail: ${email}\n\nDescription: ${description}`
+                ` New message\n\nName:${name}\nEmail: ${email}\n\nDescription: ${description}`,
             );
         } catch (error) {
             console.error(error);
