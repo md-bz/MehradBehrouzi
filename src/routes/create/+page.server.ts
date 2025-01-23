@@ -92,7 +92,8 @@ export const actions = {
             return fail(500, { error: "internal server error" });
         }
 
-        const telegramMarkdown = telegramifyMarkdown(fileText, "keep");
+        const telegramMarkdown =
+            `*${String(name)}*\n\n` + telegramifyMarkdown(fileText, "keep");
         try {
             await sendToTelegram(telegramMarkdown);
         } catch (error) {
