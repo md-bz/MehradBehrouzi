@@ -36,6 +36,9 @@ export async function sendToTelegram(markdown: string, retry = 3) {
         if (json.ok) {
             return;
         }
+        if (i === retry - 1) {
+            throw new Error(json.description);
+        }
     }
 }
 
@@ -49,6 +52,9 @@ export async function sendToTelegramPrivate(text: string, retry = 3) {
         const json = await res.json();
         if (json.ok) {
             return;
+        }
+        if (i === retry - 1) {
+            throw new Error(json.description);
         }
     }
 }
