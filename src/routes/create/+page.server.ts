@@ -42,24 +42,24 @@ export const actions = {
 
         const author = (await locals.getSession())?.user;
 
-        if (!author) return fail(401, { unauthorized: true });
+        if (!author) return fail(401, { error: "unauthorized" });
 
         const { name: authorName, email: authorEmail } = author;
 
         if (!authorName || !authorEmail)
-            return fail(422, { missingAuthor: true });
+            return fail(422, { error: "missingAuthor" });
 
         if (language !== "fa" && language !== "en")
-            return fail(422, { wrongLanguage: true });
+            return fail(422, { error: "wrongLanguage" });
 
         if (file.type !== "text/markdown")
-            return fail(422, { wrongType: true });
+            return fail(422, { error: "wrongType" });
 
         if (file.size > maxSize * 1000 * 1000)
-            return fail(422, { tooLarge: true });
+            return fail(422, { error: "tooLarge" });
 
         if (language === "fa" && !slug) {
-            return fail(422, { slugRequired: true });
+            return fail(422, { error: "slugRequired" });
         }
 
         slug = slug || name.toString();
