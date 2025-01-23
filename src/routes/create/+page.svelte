@@ -2,9 +2,9 @@
     import { enhance } from "$app/forms";
 </script>
 
-<head>
+<svelte:head>
     <meta name="robots" content="noindex" />
-</head>
+</svelte:head>
 
 <form method="POST" action="?/post" enctype="multipart/form-data" use:enhance>
     <fieldset>
