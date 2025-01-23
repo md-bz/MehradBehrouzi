@@ -92,8 +92,11 @@ export const actions = {
             return fail(500, { error: "internal server error" });
         }
 
+        const postUrl = new URL(request.url).origin + "/post/" + slug;
         const telegramMarkdown =
-            `*${String(name)}*\n\n` + telegramifyMarkdown(fileText, "keep");
+            `*${String(name)}*\n\n` +
+            telegramifyMarkdown(fileText, "keep") +
+            `\n\n[website](${postUrl})`;
         try {
             await sendToTelegram(telegramMarkdown);
         } catch (error) {
