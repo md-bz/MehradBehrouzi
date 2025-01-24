@@ -1,10 +1,12 @@
 <script lang="ts">
+    import { afterNavigate, beforeNavigate } from "$app/navigation";
     import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
     import GithubLink from "$lib/components/GithubLink.svelte";
     import SvelteHead from "$lib/components/SvelteHead.svelte";
     import { loadTranslations } from "$lib/translations";
     import { t } from "$lib/translations";
+    import { onMount } from "svelte";
 
     let { data, children } = $props();
 
@@ -14,11 +16,26 @@
         const theme = data.theme || "dark";
         document.documentElement.setAttribute("data-theme", theme);
     }
+
+    let isLoading = $state(false);
+    onMount(() => {
+        beforeNavigate(() => {
+            isLoading = true;
+        });
+
+        afterNavigate(() => {
+            isLoading = false;
+        });
+    });
 </script>
 
 <SvelteHead />
 
 <div id="root" style={data.lang === "fa" ? "font-family:Vazirmatn;" : ""}>
+    {#if isLoading}
+        <progress style="position:absolute;top:0 ;height:3px"></progress>
+    {/if}
+
     <header style="direction: ltr;">
         <nav>
             <ul>
