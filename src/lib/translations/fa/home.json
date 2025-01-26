@@ -10,7 +10,7 @@
     },
     "projects": {
         "title": "پروژه‌ها",
-        "MehradBz": {
+        "MehradBehrouzi": {
             "description": "وب‌سایت و بلاگ شخصی نوشته شده با SvelteKit "
         },
         "HyperChat": {

@@ -50,10 +50,10 @@
     <h2>{$t("home.projects.title")}</h2>
     <div class="project_container">
         <ProjectCard
-            name="MehradBz"
-            description={$t("home.projects.MehradBz.description")}
+            name="MehradBehrouzi"
+            description={$t("home.projects.MehradBehrouzi.description")}
             theme={data.theme}
-            link="https://github.com/md-bz/mehradbz"
+            link="https://github.com/md-bz/MehradBehrouzi"
         />
         <ProjectCard
             name="HyperChat"

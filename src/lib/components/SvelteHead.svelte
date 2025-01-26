@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Mehradbz - Fullstack Developer</title>
+    <title>MehradBehrouzi - Fullstack Developer</title>
     <meta
         name="description"
         content="Personal website and blog about programming and technology."
@@ -10,5 +10,5 @@
         property="og:description"
         content="Personal website and blog about programming and technology."
     />
-    <meta property=" og:title" content="Mehradbz - fullstack developer" />
+    <meta property=" og:title" content="MehradBehrouzi - fullstack developer" />
 </svelte:head>

@@ -1,10 +1,10 @@
-# Mehradbz Personal Website
+# MehradBehrouzi Personal Website
 
 Welcome to the repository for my personal website! This is a minimalist website currently featuring a blog section where I share thoughts, ideas, and insights.
 
 ## Project Details
 
--   **Name:** mehradbz
+-   **Name:** MehradBehrouzi
 -   **Framework:** [SvelteKit](https://kit.svelte.dev/)
 -   **Database:** [Drizzle ORM](https://orm.drizzle.team/) with NeonDB
 -   **Markdown Rendering:** Powered by [markdown-it](https://github.com/markdown-it/markdown-it) and [telegramify-markdown](https://github.com/sudoskys/telegramify-markdown) for telegram markdown rendering
@@ -37,8 +37,8 @@ To get started with the project locally:
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/md-bz/MehradBz
-    cd MehradBz
+    git clone https://github.com/md-bz/MehradBehrouzi
+    cd MehradBehrouzi
     ```
 1. install dependencies
     ```bash
