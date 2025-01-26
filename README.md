@@ -44,7 +44,7 @@ To get started with the project locally:
     ```bash
     npm install
     ```
-1. Copy `.env.example` to `.env` and fill in the required values(make sure to use sqlite with master branch and neondb with vercel branch)
+1. Copy `.env.example` to `.env` and fill in the required values
 
 1. Initialize the database:
 
