@@ -19,4 +19,5 @@
         <button type="submit">Delete</button>
     </form>
 {/if}
+<h1>{data.info.name}</h1>
 {@html data.html}
