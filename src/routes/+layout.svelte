@@ -2,7 +2,6 @@
     import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
     import GithubLink from "$lib/components/GithubLink.svelte";
-    import SvelteHead from "$lib/components/SvelteHead.svelte";
     import { loadTranslations } from "$lib/translations";
     import { t } from "$lib/translations";
 
@@ -15,8 +14,6 @@
         document.documentElement.setAttribute("data-theme", theme);
     }
 </script>
-
-<SvelteHead />
 
 <div id="root" style={data.lang === "fa" ? "font-family:Vazirmatn;" : ""}>
     <header style="direction: ltr;">
