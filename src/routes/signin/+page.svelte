@@ -3,7 +3,10 @@
     // be able to access it(and if that do cant log in) other then the programmer
     import { SignIn, SignOut } from "@auth/sveltekit/components";
     import { page } from "$app/state";
+    import SvelteHeadNoIndex from "$lib/components/SvelteHeadNoIndex.svelte";
 </script>
+
+<SvelteHeadNoIndex />
 
 <div>
     {#if page.data.session}

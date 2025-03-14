@@ -1,12 +1,10 @@
 <script>
     import { enhance } from "$app/forms";
+    import SvelteHeadNoIndex from "$lib/components/SvelteHeadNoIndex.svelte";
     const { form } = $props();
 </script>
 
-<svelte:head>
-    <meta name="robots" content="noindex" />
-</svelte:head>
-
+<SvelteHeadNoIndex />
 <form method="POST" action="?/post" enctype="multipart/form-data" use:enhance>
     {#if form?.error}
         <p style="color: var(--pico-del-color)};">{form.error}</p>

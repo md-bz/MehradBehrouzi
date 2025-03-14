@@ -2,7 +2,7 @@
     import { enhance } from "$app/forms";
     import LogosList from "$lib/components/LogosList.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
-    import SvelteHead from "$lib/components/SvelteHead.svelte";
+    import SvelteHeadDefault from "$lib/components/SvelteHeadDefault.svelte";
     import { t } from "$lib/translations";
     let { data, form } = $props();
 
@@ -24,7 +24,7 @@
     ];
 </script>
 
-<SvelteHead />
+<SvelteHeadDefault />
 
 <div class="hero" style="text-align: {data.lang === 'en' ? 'left' : 'right'};">
     <div>
