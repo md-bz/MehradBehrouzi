@@ -53,19 +53,15 @@
             name="MehradBehrouzi"
             description={$t("home.projects.MehradBehrouzi.description")}
             theme={data.theme}
-            link="https://github.com/md-bz/MehradBehrouzi"
-        />
-        <ProjectCard
-            name="HyperChat"
-            description={$t("home.projects.HyperChat.description")}
-            theme={data.theme}
-            link="https://github.com/md-bz/Hyper-Chat"
+            githubLink="https://github.com/md-bz/MehradBehrouzi"
+            siteLink="https://mehrad-behrouzi.vercel.app/"
         />
         <ProjectCard
             name="VexChat"
             description={$t("home.projects.VexChat.description")}
             theme={data.theme}
-            link="https://github.com/md-bz/Vex-Chat"
+            githubLink="https://github.com/md-bz/Vex-Chat"
+            siteLink="https://vex-chat.vercel.app/"
         />
     </div>
 </div>
