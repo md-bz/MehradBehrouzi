@@ -61,6 +61,12 @@
             theme={data.theme}
             link="https://github.com/md-bz/Hyper-Chat"
         />
+        <ProjectCard
+            name="VexChat"
+            description={$t("home.projects.VexChat.description")}
+            theme={data.theme}
+            link="https://github.com/md-bz/Vex-Chat"
+        />
     </div>
 </div>
 

@@ -15,6 +15,9 @@
         },
         "HyperChat": {
             "description": "Chat app backend written with HyperExpress and Mongodb."
+        },
+        "VexChat": {
+            "description": "Fullstack  Chat app made with nextjs and convex"
         }
     }
 }

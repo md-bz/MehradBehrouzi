@@ -15,6 +15,9 @@
         },
         "HyperChat": {
             "description": "بک‌اندِ نرم‌افزار چت نوشته شده با HyperExpress و  Mognodb"
+        },
+        "VexChat": {
+            "description": "نرم افزار چت فول‌استک ساختع شده با Nextjs و Convex"
         }
     }
 }
