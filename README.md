@@ -12,7 +12,7 @@ Welcome to the repository for my personal website! This is a minimalist website 
 ## Features
 
 -   **Blog Section:** A space to publish and showcase articles.
--   **Localization Support:** Managed via [sveltekit-i18n](https://github.com/sveltekit-i18n/sveltekit-i18n) fo multilingual capabilities.
+-   **Localization Support:** Managed via [sveltekit-i18n](https://github.com/sveltekit-i18n/sveltekit-i18n) for multilingual capabilities.
 -   **Markdown-Driven Content:** Blog content is written in Markdown for simplicity.
 -   **Database Management:** Using `drizzle-kit` for schema migrations and database operations.
 
