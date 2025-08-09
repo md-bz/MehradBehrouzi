@@ -18,6 +18,9 @@
         },
         "VexChat": {
             "description": "Fullstack Chat app made with nextjs and convex"
+        },
+        "TempHost": {
+            "description": "A self-hosted temporary file sharing service made with Hono"
         }
     }
 }

@@ -63,6 +63,12 @@
             githubLink="https://github.com/md-bz/Vex-Chat"
             siteLink="https://vex-chat.vercel.app/"
         />
+        <ProjectCard
+            name="TempHost"
+            description={$t("home.projects.TempHost.description")}
+            theme={data.theme}
+            githubLink="https://github.com/md-bz/temp-host"
+        />
     </div>
 </div>
 

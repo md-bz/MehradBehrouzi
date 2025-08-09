@@ -1,7 +1,19 @@
 <script lang="ts">
     import GithubLink from "./GithubLink.svelte";
 
-    let { name, description, githubLink, theme, siteLink } = $props();
+    let {
+        name,
+        description,
+        githubLink,
+        theme,
+        siteLink,
+    }: {
+        name: string;
+        description: string;
+        githubLink: string;
+        theme: string;
+        siteLink?: string;
+    } = $props();
 </script>
 
 <article>
