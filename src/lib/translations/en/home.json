@@ -2,7 +2,7 @@
     "hero": {
         "subtitle": "Hi, my name is",
         "name": "Mehrad Behrouzi",
-        "description": "I'm a fullstack developer focused on backend"
+        "description": "I'm a backend developer"
     },
     "skills": {
         "title": "Skills",
@@ -17,7 +17,7 @@
             "description": "Chat app backend written with HyperExpress and Mongodb."
         },
         "VexChat": {
-            "description": "Fullstack  Chat app made with nextjs and convex"
+            "description": "Fullstack Chat app made with nextjs and convex"
         }
     }
 }
