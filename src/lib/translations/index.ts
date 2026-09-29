@@ -1,6 +1,6 @@
-import i18n from "sveltekit-i18n";
+import { I18n, type Config } from "sveltekit-i18n";
 
-const config = {
+const config: Config = {
     loaders: [
         {
             locale: "en",
@@ -55,5 +55,4 @@ const config = {
 
 export const defaultLocale = "fa";
 
-export const { t, locale, locales, loading, loadTranslations, translations } =
-    new i18n(config);
+export const i18n = new I18n(config);

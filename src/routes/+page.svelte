@@ -3,7 +3,7 @@
     import LogosList from "$lib/components/LogosList.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import SvelteHeadDefault from "$lib/components/SvelteHeadDefault.svelte";
-    import { t } from "$lib/translations";
+    import { i18n } from "$lib/translations";
     let { data, form } = $props();
 
     let formIsLoading = $state(false);
@@ -28,44 +28,44 @@
 
 <div class="hero" style="text-align: {data.lang === 'en' ? 'left' : 'right'};">
     <div>
-        <small>{$t("home.hero.subtitle")}</small>
-        <h1 class="name">{$t("home.hero.name")}</h1>
+        <small>{i18n.t("home.hero.subtitle")}</small>
+        <h1 class="name">{i18n.t("home.hero.name")}</h1>
         <h6>
-            {@html $t("home.hero.description")}
+            {@html i18n.t("home.hero.description")}
         </h6>
     </div>
 </div>
 
 <div class="skills">
     <div class="text">
-        <h2>{$t("home.skills.title")}</h2>
+        <h2>{i18n.t("home.skills.title")}</h2>
         <p>
-            {@html $t("home.skills.description")}
+            {@html i18n.t("home.skills.description")}
         </p>
     </div>
     <LogosList theme={data.theme} {logos} />
 </div>
 
 <div class="projects">
-    <h2>{$t("home.projects.title")}</h2>
+    <h2>{i18n.t("home.projects.title")}</h2>
     <div class="project_container">
         <ProjectCard
             name="MehradBehrouzi"
-            description={$t("home.projects.MehradBehrouzi.description")}
+            description={i18n.t("home.projects.MehradBehrouzi.description")}
             theme={data.theme}
             githubLink="https://github.com/md-bz/MehradBehrouzi"
             siteLink="https://mehrad-behrouzi.vercel.app/"
         />
         <ProjectCard
             name="VexChat"
-            description={$t("home.projects.VexChat.description")}
+            description={i18n.t("home.projects.VexChat.description")}
             theme={data.theme}
             githubLink="https://github.com/md-bz/Vex-Chat"
             siteLink="https://vex-chat.vercel.app/"
         />
         <ProjectCard
             name="TempHost"
-            description={$t("home.projects.TempHost.description")}
+            description={i18n.t("home.projects.TempHost.description")}
             theme={data.theme}
             githubLink="https://github.com/md-bz/temp-host"
         />
@@ -73,7 +73,7 @@
 </div>
 
 <div class="contact">
-    <h2>{$t("contact.form.title")}</h2>
+    <h2>{i18n.t("contact.form.title")}</h2>
     <form
         method="POST"
         action="?/contact"
@@ -91,17 +91,17 @@
     >
         {#if form?.serverError}
             <b style="color: var(--pico-del-color);"
-                >{$t("contact.form.serverError")}</b
+                >{i18n.t("contact.form.serverError")}</b
             >
         {/if}
         {#if form?.success}
             <b style="color: var(--pico-ins-color);">
-                {$t("contact.form.success")}
+                {i18n.t("contact.form.success")}
             </b>
         {/if}
         <fieldset>
             <label>
-                {$t("contact.form.name")}
+                {i18n.t("contact.form.name")}
                 <input
                     required
                     type="text"
@@ -117,7 +117,7 @@
                 />
                 {#if form?.nameIsInvalid}
                     <small id="name-invalid">
-                        {$t(
+                        {i18n.t(
                             form.missing
                                 ? "contact.name.required"
                                 : "contact.name.invalid",
@@ -127,7 +127,7 @@
             </label>
 
             <label>
-                {$t("contact.form.email")}
+                {i18n.t("contact.form.email")}
                 <input
                     required
                     autocomplete="email"
@@ -141,7 +141,7 @@
                 />
                 {#if form?.emailIsInvalid}
                     <small id="email-invalid">
-                        {$t(
+                        {i18n.t(
                             form.missing
                                 ? "contact.email.required"
                                 : "contact.email.invalid",
@@ -151,7 +151,7 @@
             </label>
 
             <label>
-                {$t("contact.form.description")}
+                {i18n.t("contact.form.description")}
                 <textarea
                     name="description"
                     rows="5"
@@ -167,7 +167,7 @@
                 ></textarea>
                 {#if form?.descriptionIsInvalid}
                     <small id="description-invalid">
-                        {$t(
+                        {i18n.t(
                             form.missing
                                 ? "contact.description.required"
                                 : "contact.description.invalid",
@@ -177,7 +177,7 @@
             </label>
         </fieldset>
         <button type="submit" aria-busy={formIsLoading}>
-            {$t("contact.form.send")}
+            {i18n.t("contact.form.send")}
         </button>
     </form>
 </div>

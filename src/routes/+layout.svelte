@@ -3,13 +3,12 @@
     import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
     import GithubLink from "$lib/components/GithubLink.svelte";
-    import { loadTranslations } from "$lib/translations";
-    import { t } from "$lib/translations";
+    import { i18n } from "$lib/translations";
     import { onMount } from "svelte";
 
     let { data, children } = $props();
 
-    loadTranslations(data.lang, "/");
+    i18n.loadTranslations(data.lang, "/");
 
     if (typeof window !== "undefined") {
         const theme = data.theme || "dark";
@@ -43,16 +42,16 @@
                 </li>
 
                 <li>
-                    <a href="/blog">{$t("nav.blog")}</a>
+                    <a href="/blog">{i18n.t("nav.blog")}</a>
                 </li>
             </ul>
 
             <ul>
                 {#if data.session?.user}
-                    <li><a href="/create">{$t("nav.create")}</a></li>
+                    <li><a href="/create">{i18n.t("nav.create")}</a></li>
                 {/if}
                 <li>
-                    <ChangeLangBtn lang={$t("nav.lang")} />
+                    <ChangeLangBtn lang={i18n.t("nav.lang")} />
                 </li>
                 <li>
                     <GithubLink

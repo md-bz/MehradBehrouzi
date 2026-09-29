@@ -1,6 +1,6 @@
 <script lang="ts">
     import SvelteHeadHelper from "$lib/components/SvelteHeadHelper.svelte";
-    import { t } from "$lib/translations";
+    import { i18n } from "$lib/translations";
     let { data } = $props();
 </script>
 
@@ -12,7 +12,7 @@
             <h3>{name}</h3>
             <hr />
             {description}
-            <footer><a href="./blog/{slug}">{$t("blog.read")}</a></footer>
+            <footer><a href="./blog/{slug}">{i18n.t("blog.read")}</a></footer>
         </article>
     {/each}
 </ul>
