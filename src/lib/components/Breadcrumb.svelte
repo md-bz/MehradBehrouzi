@@ -1,13 +1,15 @@
 <script>
     import { page } from "$app/state";
 
-    let segments = $derived(
-        page.url.pathname.split("/").filter((segment) => segment !== "")
-    );
+    let parts = $derived(page.url.pathname.split("/").filter(Boolean));
+    let lang = $derived(parts[0] === "fa" || parts[0] === "en" ? parts[0] : "");
+    let base = $derived(lang ? "/" + lang : "");
+
+    let segments = $derived(lang ? parts.slice(1) : parts);
 
     let breadcrumbs = $derived(
         segments.map((segment, index) => {
-            const path = "/" + segments.slice(0, index + 1).join("/");
+            const path = base + "/" + segments.slice(0, index + 1).join("/");
             return {
                 name:
                     segment.charAt(0).toUpperCase() +
@@ -21,7 +23,7 @@
 <nav aria-label="Breadcrumb" class="breadcrumb" style="direction: ltr;">
     <ol>
         <li>
-            <a href="/">Home</a>
+            <a href={base || "/"}>Home</a>
         </li>
 
         {#each breadcrumbs as { name, path }, index}

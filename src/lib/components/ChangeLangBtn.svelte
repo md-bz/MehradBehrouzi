@@ -1,8 +1,10 @@
 <script lang="ts">
+    import { page } from "$app/state";
     let { lang } = $props();
+    let base = $derived("/" + (page.url.pathname.split("/")[1] ?? ""));
 </script>
 
-<form action="/?/changeLang" method="post">
+<form action="{base}?/changeLang" method="post">
     <button type="submit">{lang}</button>
 </form>
 

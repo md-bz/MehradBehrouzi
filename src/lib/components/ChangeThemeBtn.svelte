@@ -1,15 +1,18 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
+    import { page } from "$app/state";
     import MoonSun from "./MoonSun.svelte";
     interface Props {
         theme?: string;
     }
 
     let { theme = $bindable("dark") }: Props = $props();
+
+    let base = $derived("/" + (page.url.pathname.split("/")[1] ?? ""));
 </script>
 
 <form
-    action="/?/changeTheme"
+    action="{base}?/changeTheme"
     method="post"
     use:enhance={() => {
         return async ({ update }) => {

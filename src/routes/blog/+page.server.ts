@@ -3,12 +3,8 @@ import { post } from "$lib/server/db/schema";
 import type { PageServerLoad } from "./$types";
 import { eq } from "drizzle-orm";
 
-export const load: PageServerLoad = async ({ cookies }) => {
-    let lang = cookies.get("lang");
-    if (!lang || (lang !== "en" && lang !== "fa")) {
-        lang = "fa";
-        cookies.set("lang", lang, { path: "/", expires: undefined });
-    }
+export const load: PageServerLoad = async ({ parent }) => {
+    const { lang } = await parent();
 
     const posts = await db
         .select({
@@ -19,7 +15,7 @@ export const load: PageServerLoad = async ({ cookies }) => {
             language: post.language,
         })
         .from(post)
-        .where(eq(post.language, lang as "fa" | "en"));
+        .where(eq(post.language, lang));
 
     return { posts };
 };

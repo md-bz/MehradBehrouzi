@@ -1,10 +1,12 @@
+import { load as i18nLoad } from "$lib/translations";
 import type { LayoutServerLoad } from "./$types";
 
-export const load: LayoutServerLoad = async ({ cookies, locals }) => {
-    let lang = cookies.get("lang");
+export const load: LayoutServerLoad = async (event) => {
+    const { cookies, locals } = event;
+    const { i18n } = await i18nLoad(event);
+    const lang = (i18n.locale === "en" ? "en" : "fa") as "fa" | "en";
 
-    if (!lang || (lang !== "en" && lang !== "fa")) {
-        lang = "fa";
+    if (cookies.get("lang") !== lang) {
         cookies.set("lang", lang, { path: "/", expires: undefined });
     }
 
@@ -19,5 +21,6 @@ export const load: LayoutServerLoad = async ({ cookies, locals }) => {
         session: await locals.auth(),
         lang,
         theme,
+        i18n,
     };
 };

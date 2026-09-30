@@ -1,7 +1,8 @@
 <script lang="ts">
     import SvelteHeadHelper from "$lib/components/SvelteHeadHelper.svelte";
-    import { i18n } from "$lib/translations";
+    import { get } from "$lib/translations";
     let { data } = $props();
+    let i18n = get();
 </script>
 
 <SvelteHeadHelper title="Blog" description="Blog of Mehrad Behrouzi" />

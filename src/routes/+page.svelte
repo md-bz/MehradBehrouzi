@@ -3,8 +3,10 @@
     import LogosList from "$lib/components/LogosList.svelte";
     import ProjectCard from "$lib/components/ProjectCard.svelte";
     import SvelteHeadDefault from "$lib/components/SvelteHeadDefault.svelte";
-    import { i18n } from "$lib/translations";
+    import { get } from "$lib/translations";
     let { data, form } = $props();
+
+    const i18n = get();
 
     let formIsLoading = $state(false);
 

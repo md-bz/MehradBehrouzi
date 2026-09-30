@@ -1,2 +1,7 @@
 allowBuilds:
-    esbuild: true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@curly-message/parser@3.1.0'
+  - '@sveltekit-i18n/base@3.2.0'
+  - '@sveltekit-i18n/parser-curly@3.2.0'
+  - sveltekit-i18n@3.3.0

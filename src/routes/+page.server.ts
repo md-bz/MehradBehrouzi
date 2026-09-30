@@ -4,17 +4,16 @@ import { sendToTelegramPrivate } from "$lib/server/telegram";
 export const load = async () => {}; // this is here because form is imported from props in page.svelte
 
 export const actions = {
-    changeLang: async ({ cookies }: { cookies: Cookies }) => {
-        const lang = cookies.get("lang");
-        const newLang = lang === "en" ? "fa" : "en";
+    changeLang: async ({ cookies, url }: { cookies: Cookies; url: URL }) => {
+        const newLang = url.pathname.startsWith("/en") ? "fa" : "en";
         cookies.set("lang", newLang, { path: "/", expires: undefined });
-        redirect(302, "/");
+        redirect(302, "/" + newLang);
     },
     changeTheme: async ({ cookies }: { cookies: Cookies }) => {
         const theme = cookies.get("theme");
         const newTheme = theme === "light" ? "dark" : "light";
         cookies.set("theme", newTheme, { path: "/", expires: undefined });
-        redirect(302, "/");
+        // no redirect — enhance() already flips the DOM,
     },
     contact: async ({ request }: { request: Request }) => {
         const form = await request.formData();

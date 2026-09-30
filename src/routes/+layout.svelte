@@ -3,12 +3,12 @@
     import ChangeLangBtn from "$lib/components/ChangeLangBtn.svelte";
     import ChangeThemeBtn from "$lib/components/ChangeThemeBtn.svelte";
     import GithubLink from "$lib/components/GithubLink.svelte";
-    import { i18n } from "$lib/translations";
+    import { use } from "$lib/translations";
     import { onMount } from "svelte";
 
     let { data, children } = $props();
 
-    i18n.loadTranslations(data.lang, "/");
+    let i18n = use(() => data);
 
     if (typeof window !== "undefined") {
         const theme = data.theme || "dark";
@@ -36,19 +36,24 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/" style="font-family: kanit; font-weight:600">
+                    <a
+                        href="/{data.lang}"
+                        style="font-family: kanit; font-weight:600"
+                    >
                         MehradBehrouzi
                     </a>
                 </li>
 
                 <li>
-                    <a href="/blog">{i18n.t("nav.blog")}</a>
+                    <a href="/{data.lang}/blog">{i18n.t("nav.blog")}</a>
                 </li>
             </ul>
 
             <ul>
                 {#if data.session?.user}
-                    <li><a href="/create">{i18n.t("nav.create")}</a></li>
+                    <li>
+                        <a href="/{data.lang}/create">{i18n.t("nav.create")}</a>
+                    </li>
                 {/if}
                 <li>
                     <ChangeLangBtn lang={i18n.t("nav.lang")} />

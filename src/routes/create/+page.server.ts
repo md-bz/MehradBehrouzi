@@ -92,7 +92,8 @@ export const actions = {
             return fail(500, { error: "internal server error" });
         }
 
-        const postUrl = new URL(request.url).origin + "/post/" + slug;
+        const postUrl =
+            new URL(request.url).origin + `/${language}/blog/${slug}`;
         const telegramMarkdown =
             `*${String(name)}*\n\n` +
             telegramifyMarkdown(fileText, "keep") +

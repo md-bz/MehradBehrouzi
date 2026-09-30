@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from "$app/state";
     let { data } = $props();
 </script>
 
@@ -6,10 +7,8 @@
     <meta name="description" content={data.info.description} />
     <meta property="og:description" content={data.info.description} />
     <meta property="og:title" content={data.info.name} />
-    <meta
-        property="og:url"
-        content="https://www.mehrad-bz.vercel.app/blog/{data.info.slug}"
-    />
+    <meta property="og:url" content={page.url.href} />
+    <link rel="canonical" href={page.url.href} />
     <title>{data.info.name}</title>
 </svelte:head>
 <hr />
